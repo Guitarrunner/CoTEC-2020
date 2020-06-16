@@ -1,0 +1,2 @@
+INSERT INTO CONTACTO (NombreContacto, Apellidos, IdPaciente, NumIdentificacion, Edad, IdLugar, Nacionalidad, Email, IdPatologia)
+VALUES ('Avye','I. Johns',165407027753,163612212633,65,1,'Guernsey','email1@gmail.com',1);
