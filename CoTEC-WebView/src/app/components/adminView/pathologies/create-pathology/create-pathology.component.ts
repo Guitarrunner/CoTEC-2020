@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-pathology.component.css']
 })
 export class CreatePathologyComponent implements OnInit {
-
+  symptoms=[]
   constructor() { }
 
   ngOnInit(): void {
