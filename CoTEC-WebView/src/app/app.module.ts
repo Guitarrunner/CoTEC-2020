@@ -19,6 +19,8 @@ import { CreatePathologyComponent } from './components/adminView/pathologies/cre
 import { CreatePatientComponent } from './components/hospitalCenter/patient/create-patient/create-patient.component';
 import { CreateContactComponent } from './components/hospitalCenter/recent-contacts/create-contact/create-contact.component';
 import { ModifyPathologyComponent } from './components/adminView/pathologies/modify-pathology/modify-pathology.component';
+import { ModifyPatientComponent } from './components/hospitalCenter/patient/modify-patient/modify-patient.component';
+import { ModifyContactsComponent } from './components/hospitalCenter/recent-contacts/modify-contacts/modify-contacts.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ModifyPathologyComponent } from './components/adminView/pathologies/mod
     CreatePathologyComponent,
     CreatePatientComponent,
     CreateContactComponent,
-    ModifyPathologyComponent
+    ModifyPathologyComponent,
+    ModifyPatientComponent,
+    ModifyContactsComponent
 
   ],
   imports: [
