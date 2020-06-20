@@ -1,0 +1,28 @@
+<div id="content" #content>
+
+  <h3>Centros Hospitalarios</h3>
+  <table class="table">
+     <thead>
+        <tr>
+           <th scope="col">Nombre</th>
+           <th scope="col">Ubicación</th>
+           <th scope="col">Cantidad de camas</th>
+           <th scope="col">Camas UCI</th>
+           <th scope="col">Director</th>
+           <th scope="col">Contacto</th>
+        </tr>
+     </thead>
+     <tbody>
+
+        <tr *ngFor="let item of hospitals">
+           <th scope="row">{{ item.name }}</th>
+           <td>{{ item.location }}</td>
+           <td>{{ item.bedCapacity }}</td>
+           <td>{{ item.uci }}</td>
+           <td>{{ item.director }}</td>
+           <td>{{ item.contact }}</td>
+        </tr>
+     </tbody>
+  </table>
+  <button class="btn btn-dark" routerLink="/createHospital">Agregar hospital</button>
+</div>

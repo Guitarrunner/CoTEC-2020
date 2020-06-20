@@ -1,0 +1,34 @@
+
+<div id="content" #content>
+
+  <h3>Patologías</h3>
+  <table class="table">
+     <thead>
+        <tr>
+           <th scope="col">Nombre</th>
+           <th scope="col">Apellido</th>
+           <th scope="col">Nº Identificación</th>
+           <th scope="col">Edad</th>
+           <th scope="col">Estado</th>
+           <th scope="col">Medicación</th>
+           <th scope="col">Internado</th>
+           <th scope="col">UCI</th>
+        </tr>
+     </thead>
+     <tbody>
+
+        <tr *ngFor="let item of patients">
+           <th scope="row">{{ item.name }}</th>
+           <td>{{ item.lastName }}</td>
+           <td>{{ item.id }}</td>
+           <td>{{ item.age }}</td>
+           <td>{{ item.state }}</td>
+           <td>{{ item.medication }}</td>
+           <td>{{ item.intern }}</td>
+           <td>{{ item.uci }}</td>
+
+        </tr>
+     </tbody>
+  </table>
+  <button class="btn btn-dark" routerLink="/createPatient">Agregar paciente</button>
+</div>

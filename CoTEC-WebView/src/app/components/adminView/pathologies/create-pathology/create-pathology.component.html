@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">   
+      <div class="col-sm">
+        <form>
+            <h3>Agregar Patología</h3>
+            <div class="form-group">
+              <label for="pathologyName">Nombre de la patología</label>
+              <input class="form-control" id="pathologyName" aria-describedby="emailHelp">
+              
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input  class="form-control" id="descripcion">
+            </div>
+            <div class="form-group">
+                <label for="sintomas">Sintomas</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="diarrea" id="diarrea" value="option1" checked>
+                    <label class="form-check-label" for="diarrea">
+                      Diarrea
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="dolor de cabeza" id="dolor de cabeza" value="option2">
+                    <label class="form-check-label" for="dolor de cabeza">
+                      dolor de cabeza
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Vomito" id="vomito" value="option2">
+                    <label class="form-check-label" for="vomito">
+                        Vomito
+                    </label>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="tratamiento">Tratamiento</label>
+                <input  class="form-control" id="tratamiento">
+            </div>
+
+            <button class="btn btn-dark" routerLink="/pathologies">Agregar</button>
+
+          </form>
+      </div>
+      <div class="col-sm">
+      </div>
+
+    </div>
+  </div>
