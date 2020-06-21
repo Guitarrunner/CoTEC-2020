@@ -5,25 +5,33 @@
             <h3>Agregar Patología</h3>
             <div class="form-group">
               <label for="pathologyName">Nombre de la patología</label>
-              <input class="form-control" id="pathologyName" aria-describedby="emailHelp">
+              <input class="form-control" id="pathologyName" placeholder="Nombre">
               
             </div>
             <div class="form-group">
-              <label for="descripcion">Descripción</label>
-              <input  class="form-control" id="descripcion">
+              <label for="description">Descripción</label>
+              <input  class="form-control" id="description">
             </div>
+           
+            <!--   Hay que quitarle lo dinamico
+              <select multiple class="form-control" id="symptoms" >
+                <option *ngFor="let item of symptoms">
+                {{item}}
+                </option>
+            </select> -->
+
+
             <div class="form-group">
-                <label for="sintomas">Sintomas</label>
-                <select multiple id="symptoms" >
-                  <option *ngFor="let item of symptoms">
-                  {{item}}
-                  </option>
-              </select>
+              <label for="symptoms">Síntomas</label>
+              <input  class="form-control" id="symptoms">
             </div>
+
+
             <div class="form-group">
                 <label for="tratamiento">Tratamiento</label>
-                <input  class="form-control" id="tratamiento">
+                <input  class="form-control" id="treatment">
             </div>
+
           </form>
       </div>
       <div class="col-sm">

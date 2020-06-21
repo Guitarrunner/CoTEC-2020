@@ -10,6 +10,17 @@ export class PatientStateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $( document ).ready(function() {
+      $(".editTable").click(function() {
+      var $row = $(this).closest("tr");    // Find the row
+      var primaryKey = $row.find(".primaryKey").text(); // Find the text
+     
+      
+      $("#modifiedState").val(primaryKey);
+      
+
+  });
+  }); 
   }
 
 }

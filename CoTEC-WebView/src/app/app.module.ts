@@ -21,6 +21,9 @@ import { CreateContactComponent } from './components/hospitalCenter/recent-conta
 import { ModifyPathologyComponent } from './components/adminView/pathologies/modify-pathology/modify-pathology.component';
 import { ModifyPatientComponent } from './components/hospitalCenter/patient/modify-patient/modify-patient.component';
 import { ModifyContactsComponent } from './components/hospitalCenter/recent-contacts/modify-contacts/modify-contacts.component';
+import { ModifyStateComponent } from './components/adminView/patient-state/modify-state/modify-state.component';
+import { CreateRegionComponent } from './components/adminView/regions/create-region/create-region.component';
+import { ModifyRegionComponent } from './components/adminView/regions/modify-region/modify-region.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ModifyContactsComponent } from './components/hospitalCenter/recent-cont
     CreateContactComponent,
     ModifyPathologyComponent,
     ModifyPatientComponent,
-    ModifyContactsComponent
+    ModifyContactsComponent,
+    ModifyStateComponent,
+    CreateRegionComponent,
+    ModifyRegionComponent
 
   ],
   imports: [

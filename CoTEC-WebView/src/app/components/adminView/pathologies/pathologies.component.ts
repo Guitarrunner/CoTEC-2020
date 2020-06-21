@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $: any;
+
 
 @Component({
   selector: 'app-pathologies',
@@ -13,10 +15,23 @@ export class PathologiesComponent implements OnInit {
   constructor(){}
 
   ngOnInit(): void {
+    $( document ).ready(function() {
+      $(".editTable").click(function() {
+      var $row = $(this).closest("tr");    // Find the row
+      var primaryKey = $row.find("td:eq(0)").text(); // Find the text
+      var col1=$row.find("td:eq(1)").text();
+      var col2=$row.find("td:eq(2)").text();
+      var col3=$row.find("td:eq(3)").text();
+      
+      $("#modifiedName").val(primaryKey);
+      $("#modifiedDescription").val(col1);
+      $("#modifiedSymptoms").val(col2);
+      $("#modifiedTreatment").val(col3);
+
+  });
+  }); 
 
   }
-
-
 
 
   bellaqueo(): void {

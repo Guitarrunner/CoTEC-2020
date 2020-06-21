@@ -9,7 +9,7 @@
 
             <div class="form-group">
                 <label for="apellidos">Apellidos del paciente</label>
-                <input class="form-control" id="apellidos" >
+                <input class="form-control" id="lastName" >
             </div>
 
             <div class="form-group">
@@ -19,19 +19,49 @@
             
             <div class="form-group">
                 <label for="edad">Edad</label>
-                <input class="form-control" id="edad" >
+                <input class="form-control" id="age" >
                 
             </div>
             
             <div class="form-group">
                 <label for="id">Nacionalidad</label>
-                <input class="form-control" id="id" >
+                <input class="form-control" id="nationality" >
+            </div>
+
+            <div class="form-group">
+              <label for="region">Región</label>
+              <select multiple class="form-control" id="regions" >
+                <option *ngFor="let item of regionsList">
+                {{item}}
+                </option>
+              </select>
             </div>
 
 
-            <!-- region -->
-            <!-- pathologies --> 
-            <!--State-->    
+
+            <div class="form-group">
+              <label for="pathology">Patologías</label>
+              <select multiple class="form-control" id="createPatientPathologies" >
+                <option *ngFor="let item of pathologiesList">
+                {{item}}
+                </option>
+              </select>
+            </div>
+            
+            
+            <div class="form-group">
+              <label for="state">Estado</label>
+              <select multiple class="form-control" id="states" >
+                <option *ngFor="let item of statesList">
+                {{item}}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="id">Mediación</label>
+              <input class="form-control" id="medication" >
+            </div>
           
             
             <label>Internado</label>
