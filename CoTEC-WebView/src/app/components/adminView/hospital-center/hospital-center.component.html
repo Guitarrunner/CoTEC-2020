@@ -4,6 +4,7 @@
   <table class="table">
      <thead>
         <tr>
+          <th scope="col">Id</th>
            <th scope="col">Nombre</th>
            <th scope="col">Ubicación</th>
            <th scope="col">Cantidad de camas</th>
@@ -14,12 +15,13 @@
         </tr>
      </thead>
      <tbody>
-
-        <tr *ngFor="let item of hospitals">
-           <th scope="row">{{ item.name }}</th>
+       
+        <tr *ngFor="let item of hospitalsList">
+           <th scope="row">{{item.id}}</th>
+           <td>{{ item.name }}</td>
            <td>{{ item.location }}</td>
-           <td>{{ item.bedCapacity }}</td>
-           <td>{{ item.uci }}</td>
+           <td>{{ item.bedQuantity }}</td>
+           <td>{{ item.uciQuantity }}</td>
            <td>{{ item.director }}</td>
            <td>{{ item.contact }}</td>
            <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
