@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #2D2D2A;
+}
+
+head{
+  background-color: #353831;
+}
+
+app-nav{
+  background-color: #353831;
+  border-color: #353831;
+
+}

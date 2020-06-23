@@ -13,13 +13,15 @@ import {RecentContactsComponent} from 'src/app/components/hospitalCenter/recent-
 import { CreatePatientComponent } from './components/hospitalCenter/patient/create-patient/create-patient.component';
 import { CreateContactComponent } from './components/hospitalCenter/recent-contacts/create-contact/create-contact.component';
 
-/* 
+import { MapComponent} from './components/map/map.component'
+/*
 import {ReportsComponent} from 'src/app/components/hospitalView/reports/reports.component'; */
 
 const routes: Routes = [
- /*  
+ /*
   {path: 'reports', component:ReportsComponent},
    */
+  {path: 'general', component:MapComponent},
   {path: 'recentContacts', component:RecentContactsComponent},
   {path: 'patient', component: PatientComponent},
   { path: 'hospitalCenter', component: HospitalCenterComponent},

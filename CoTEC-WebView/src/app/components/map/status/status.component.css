@@ -1,0 +1,18 @@
+.status{
+  margin-left: 10px;
+  width: 250px;
+  height: 600px;
+  color: white;
+  background-color: #3F5E5A;
+}
+
+.card-header{
+  text-align: center;
+  background-color: #38423B;
+  color: #20FC8F;
+}
+
+.h1{
+  text-align: center;
+  font-size: small;
+}

@@ -25,6 +25,12 @@ import { ModifyStateComponent } from './components/adminView/patient-state/modif
 import { CreateRegionComponent } from './components/adminView/regions/create-region/create-region.component';
 import { ModifyRegionComponent } from './components/adminView/regions/modify-region/modify-region.component';
 
+import {MapComponent} from './components/map/map.component';
+import {MapViewComponent} from './components/map/map-view/map-view.component';
+import { StatusComponent} from './components/map/status/status.component';
+import { MeasurementsComponent } from './components/map/measurements/measurements.component';
+
+import { AgmCoreModule} from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,13 +52,20 @@ import { ModifyRegionComponent } from './components/adminView/regions/modify-reg
     ModifyContactsComponent,
     ModifyStateComponent,
     CreateRegionComponent,
-    ModifyRegionComponent
+    ModifyRegionComponent,
+    MapComponent,
+    MapViewComponent,
+    StatusComponent,
+    MeasurementsComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC9Rw5vYXeTztwI-jDY4DlvPZQGPmJm8J4'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
