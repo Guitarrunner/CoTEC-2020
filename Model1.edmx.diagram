@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="653156eeb3594d1ebb3364e8a87db735" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="CoTECModel.CENTRO_HOSPITALARIO" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoTECModel.ESTADO" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoTECModel.LUGAR" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoTECModel.MEDICAMENTO" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoTECModel.MEDIDA_SANITARIA" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoTECModel.PATOLOGIA" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="CoTECModel.FK__CENTRO_HO__IdLug__3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CoTECModel.MEDIDAS_PAIS" Width="1.5" PointX="6" PointY="3.875" />
+        <EntityTypeShape EntityType="CoTECModel.REPORTES_ESTADOS" Width="1.5" PointX="3" PointY="18.75" />
+        <AssociationConnector Association="CoTECModel.FK__MEDIDAS_P__IdLug__5AEE82B9" />
+        <AssociationConnector Association="CoTECModel.FK__REPORTES___IdLug__5629CD9C" />
+        <AssociationConnector Association="CoTECModel.FK__MEDIDAS_P__IdMed__5BE2A6F2" />
+        <EntityTypeShape EntityType="CoTECModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CoTECModel.REPORTES_CASOS" Width="1.5" PointX="3" PointY="22.25" />
+        <AssociationConnector Association="CoTECModel.FK__REPORTES___IdLug__5441852A" />
+        <EntityTypeShape EntityType="CoTECModel.CONTACTO" Width="1.5" PointX="8.25" PointY="10.5" />
+        <EntityTypeShape EntityType="CoTECModel.ESTADO_PACIENTE" Width="1.5" PointX="8.25" PointY="6.5" />
+        <EntityTypeShape EntityType="CoTECModel.PACIENTE" Width="1.5" PointX="6" PointY="6.875" />
+        <AssociationConnector Association="CoTECModel.FK__CONTACTO__IdLuga__4E88ABD4" />
+        <AssociationConnector Association="CoTECModel.FK__CONTACTO__IdPaci__4D94879B" />
+        <AssociationConnector Association="CoTECModel.FK__CONTACTO__IdPato__4F7CD00D" />
+        <AssociationConnector Association="CoTECModel.FK__ESTADO_PA__IdEst__52593CB8" />
+        <AssociationConnector Association="CoTECModel.FK__PACIENTE__IdEsta__47DBAE45" />
+        <AssociationConnector Association="CoTECModel.FK__ESTADO_PA__IdPac__5165187F" />
+        <AssociationConnector Association="CoTECModel.FK__PACIENTE__IdLuga__46E78A0C" />
+        <AssociationConnector Association="CoTECModel.FK__PACIENTE__IdMedi__48CFD27E" />
+        <AssociationConnector Association="CoTECModel.FK__PACIENTE__IdPato__49C3F6B7" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

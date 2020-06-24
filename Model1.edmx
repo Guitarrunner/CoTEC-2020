@@ -1,0 +1,959 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CoTECModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CENTRO_HOSPITALARIO">
+          <Key>
+            <PropertyRef Name="IdCentroHospitalario" />
+          </Key>
+          <Property Name="IdCentroHospitalario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreHospital" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Director" Type="varchar" MaxLength="45" />
+          <Property Name="Contacto" Type="varchar" MaxLength="30" />
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="Capacidad" Type="int" />
+        </EntityType>
+        <EntityType Name="CONTACTO">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreContacto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="IdPaciente" Type="int" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumIdentificacionContacto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="IdPatologia" Type="int" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO_PACIENTE">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="IdPaciente" Type="int" Nullable="false" />
+          <Property Name="IdEstado" Type="int" />
+        </EntityType>
+        <EntityType Name="LUGAR">
+          <Key>
+            <PropertyRef Name="IdLugar" />
+          </Key>
+          <Property Name="IdLugar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="30" />
+          <Property Name="Region" Type="varchar" MaxLength="30" />
+          <Property Name="Provincia" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="MEDICAMENTO">
+          <Key>
+            <PropertyRef Name="IdMedicamento" />
+          </Key>
+          <Property Name="IdMedicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Medicamento" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CasaFarmaceutica" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIDA_SANITARIA">
+          <Key>
+            <PropertyRef Name="IdMedidaSanitaria" />
+          </Key>
+          <Property Name="IdMedidaSanitaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMedida" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIDAS_PAIS">
+          <Key>
+            <PropertyRef Name="IdMedidasPais" />
+          </Key>
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="IdMedidaSanitaria" Type="int" />
+          <Property Name="IdMedidasPais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PACIENTE">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="NombrePaciente" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdPaciente" Type="int" Nullable="false" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="30" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdContactos" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Internado" Type="char" MaxLength="3" />
+          <Property Name="IdPatologia" Type="int" />
+          <Property Name="IdMedicamento" Type="int" />
+          <Property Name="NumIdentificacion" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PATOLOGIA">
+          <Key>
+            <PropertyRef Name="IdPatologia" />
+          </Key>
+          <Property Name="IdPatologia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePatologia" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sintomas" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tratamiento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORTES_CASOS">
+          <Key>
+            <PropertyRef Name="IdReportesCasos" />
+          </Key>
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="CasosNuevos" Type="int" />
+          <Property Name="Muertes" Type="int" />
+          <Property Name="IdReportesCasos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORTES_ESTADOS">
+          <Key>
+            <PropertyRef Name="IdReportesEstados" />
+          </Key>
+          <Property Name="IdLugar" Type="int" />
+          <Property Name="Contagiados" Type="int" />
+          <Property Name="Recuperados" Type="int" />
+          <Property Name="Muertos" Type="int" />
+          <Property Name="Activos" Type="int" />
+          <Property Name="IdReportesEstados" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__CENTRO_HO__IdLug__3A81B327">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="CENTRO_HOSPITALARIO" Type="Self.CENTRO_HOSPITALARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="CENTRO_HOSPITALARIO">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTO__IdLuga__4E88ABD4">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="CONTACTO" Type="Self.CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTO__IdPaci__4D94879B">
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="0..1" />
+          <End Role="CONTACTO" Type="Self.CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTO__IdPato__4F7CD00D">
+          <End Role="PATOLOGIA" Type="Self.PATOLOGIA" Multiplicity="0..1" />
+          <End Role="CONTACTO" Type="Self.CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PATOLOGIA">
+              <PropertyRef Name="IdPatologia" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdPatologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ESTADO_PA__IdEst__52593CB8">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="ESTADO_PACIENTE" Type="Self.ESTADO_PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="ESTADO_PACIENTE">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ESTADO_PA__IdPac__5165187F">
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="1" />
+          <End Role="ESTADO_PACIENTE" Type="Self.ESTADO_PACIENTE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Principal>
+            <Dependent Role="ESTADO_PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MEDIDAS_P__IdLug__5AEE82B9">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="MEDIDAS_PAIS" Type="Self.MEDIDAS_PAIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="MEDIDAS_PAIS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MEDIDAS_P__IdMed__5BE2A6F2">
+          <End Role="MEDIDA_SANITARIA" Type="Self.MEDIDA_SANITARIA" Multiplicity="0..1" />
+          <End Role="MEDIDAS_PAIS" Type="Self.MEDIDAS_PAIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIDA_SANITARIA">
+              <PropertyRef Name="IdMedidaSanitaria" />
+            </Principal>
+            <Dependent Role="MEDIDAS_PAIS">
+              <PropertyRef Name="IdMedidaSanitaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdEsta__47DBAE45">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdLuga__46E78A0C">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdMedi__48CFD27E">
+          <End Role="MEDICAMENTO" Type="Self.MEDICAMENTO" Multiplicity="0..1" />
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENTO">
+              <PropertyRef Name="IdMedicamento" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdPato__49C3F6B7">
+          <End Role="PATOLOGIA" Type="Self.PATOLOGIA" Multiplicity="0..1" />
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PATOLOGIA">
+              <PropertyRef Name="IdPatologia" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdPatologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPORTES___IdLug__5441852A">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="REPORTES_CASOS" Type="Self.REPORTES_CASOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="REPORTES_CASOS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPORTES___IdLug__5629CD9C">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="REPORTES_ESTADOS" Type="Self.REPORTES_ESTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="REPORTES_ESTADOS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoTECModelStoreContainer">
+          <EntitySet Name="CENTRO_HOSPITALARIO" EntityType="Self.CENTRO_HOSPITALARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACTO" EntityType="Self.CONTACTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADO_PACIENTE" EntityType="Self.ESTADO_PACIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LUGAR" EntityType="Self.LUGAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDICAMENTO" EntityType="Self.MEDICAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDIDA_SANITARIA" EntityType="Self.MEDIDA_SANITARIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDIDAS_PAIS" EntityType="Self.MEDIDAS_PAIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PACIENTE" EntityType="Self.PACIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PATOLOGIA" EntityType="Self.PATOLOGIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPORTES_CASOS" EntityType="Self.REPORTES_CASOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPORTES_ESTADOS" EntityType="Self.REPORTES_ESTADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CENTRO_HO__IdLug__3A81B327" Association="Self.FK__CENTRO_HO__IdLug__3A81B327">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="CENTRO_HOSPITALARIO" EntitySet="CENTRO_HOSPITALARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTO__IdLuga__4E88ABD4" Association="Self.FK__CONTACTO__IdLuga__4E88ABD4">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTO__IdPaci__4D94879B" Association="Self.FK__CONTACTO__IdPaci__4D94879B">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTO__IdPato__4F7CD00D" Association="Self.FK__CONTACTO__IdPato__4F7CD00D">
+            <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ESTADO_PA__IdEst__52593CB8" Association="Self.FK__ESTADO_PA__IdEst__52593CB8">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="ESTADO_PACIENTE" EntitySet="ESTADO_PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ESTADO_PA__IdPac__5165187F" Association="Self.FK__ESTADO_PA__IdPac__5165187F">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="ESTADO_PACIENTE" EntitySet="ESTADO_PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MEDIDAS_P__IdLug__5AEE82B9" Association="Self.FK__MEDIDAS_P__IdLug__5AEE82B9">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="MEDIDAS_PAIS" EntitySet="MEDIDAS_PAIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MEDIDAS_P__IdMed__5BE2A6F2" Association="Self.FK__MEDIDAS_P__IdMed__5BE2A6F2">
+            <End Role="MEDIDA_SANITARIA" EntitySet="MEDIDA_SANITARIA" />
+            <End Role="MEDIDAS_PAIS" EntitySet="MEDIDAS_PAIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdEsta__47DBAE45" Association="Self.FK__PACIENTE__IdEsta__47DBAE45">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdLuga__46E78A0C" Association="Self.FK__PACIENTE__IdLuga__46E78A0C">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdMedi__48CFD27E" Association="Self.FK__PACIENTE__IdMedi__48CFD27E">
+            <End Role="MEDICAMENTO" EntitySet="MEDICAMENTO" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdPato__49C3F6B7" Association="Self.FK__PACIENTE__IdPato__49C3F6B7">
+            <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPORTES___IdLug__5441852A" Association="Self.FK__REPORTES___IdLug__5441852A">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="REPORTES_CASOS" EntitySet="REPORTES_CASOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPORTES___IdLug__5629CD9C" Association="Self.FK__REPORTES___IdLug__5629CD9C">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="REPORTES_ESTADOS" EntitySet="REPORTES_ESTADOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoTECModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CENTRO_HOSPITALARIO">
+          <Key>
+            <PropertyRef Name="IdCentroHospitalario" />
+          </Key>
+          <Property Name="IdCentroHospitalario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreHospital" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Contacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="Capacidad" Type="Int32" />
+          <NavigationProperty Name="LUGAR" Relationship="Self.FK__CENTRO_HO__IdLug__3A81B327" FromRole="CENTRO_HOSPITALARIO" ToRole="LUGAR" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ESTADO_PACIENTE" Relationship="CoTECModel.FK__ESTADO_PA__IdEst__52593CB8" FromRole="ESTADO" ToRole="ESTADO_PACIENTE" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__PACIENTE__IdEsta__47DBAE45" FromRole="ESTADO" ToRole="PACIENTE" />
+        </EntityType>
+        <EntityType Name="LUGAR">
+          <Key>
+            <PropertyRef Name="IdLugar" />
+          </Key>
+          <Property Name="IdLugar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Provincia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CENTRO_HOSPITALARIO" Relationship="Self.FK__CENTRO_HO__IdLug__3A81B327" FromRole="LUGAR" ToRole="CENTRO_HOSPITALARIO" />
+          <NavigationProperty Name="MEDIDAS_PAIS" Relationship="CoTECModel.FK__MEDIDAS_P__IdLug__5AEE82B9" FromRole="LUGAR" ToRole="MEDIDAS_PAIS" />
+          <NavigationProperty Name="REPORTES_ESTADOS" Relationship="CoTECModel.FK__REPORTES___IdLug__5629CD9C" FromRole="LUGAR" ToRole="REPORTES_ESTADOS" />
+          <NavigationProperty Name="REPORTES_CASOS" Relationship="CoTECModel.FK__REPORTES___IdLug__5441852A" FromRole="LUGAR" ToRole="REPORTES_CASOS" />
+          <NavigationProperty Name="CONTACTO" Relationship="CoTECModel.FK__CONTACTO__IdLuga__4E88ABD4" FromRole="LUGAR" ToRole="CONTACTO" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__PACIENTE__IdLuga__46E78A0C" FromRole="LUGAR" ToRole="PACIENTE" />
+        </EntityType>
+        <EntityType Name="MEDICAMENTO">
+          <Key>
+            <PropertyRef Name="IdMedicamento" />
+          </Key>
+          <Property Name="IdMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Medicamento1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CasaFarmaceutica" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__PACIENTE__IdMedi__48CFD27E" FromRole="MEDICAMENTO" ToRole="PACIENTE" />
+        </EntityType>
+        <EntityType Name="MEDIDA_SANITARIA">
+          <Key>
+            <PropertyRef Name="IdMedidaSanitaria" />
+          </Key>
+          <Property Name="IdMedidaSanitaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMedida" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MEDIDAS_PAIS" Relationship="CoTECModel.FK__MEDIDAS_P__IdMed__5BE2A6F2" FromRole="MEDIDA_SANITARIA" ToRole="MEDIDAS_PAIS" />
+        </EntityType>
+        <EntityType Name="PATOLOGIA">
+          <Key>
+            <PropertyRef Name="IdPatologia" />
+          </Key>
+          <Property Name="IdPatologia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePatologia" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sintomas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tratamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CONTACTO" Relationship="CoTECModel.FK__CONTACTO__IdPato__4F7CD00D" FromRole="PATOLOGIA" ToRole="CONTACTO" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__PACIENTE__IdPato__49C3F6B7" FromRole="PATOLOGIA" ToRole="PACIENTE" />
+        </EntityType>
+        <Association Name="FK__CENTRO_HO__IdLug__3A81B327">
+          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+          <End Role="CENTRO_HOSPITALARIO" Type="Self.CENTRO_HOSPITALARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="CENTRO_HOSPITALARIO">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoTECEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CENTRO_HOSPITALARIO" EntityType="Self.CENTRO_HOSPITALARIO" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" />
+          <EntitySet Name="LUGAR" EntityType="Self.LUGAR" />
+          <EntitySet Name="MEDICAMENTO" EntityType="Self.MEDICAMENTO" />
+          <EntitySet Name="MEDIDA_SANITARIA" EntityType="Self.MEDIDA_SANITARIA" />
+          <EntitySet Name="PATOLOGIA" EntityType="Self.PATOLOGIA" />
+          <AssociationSet Name="FK__CENTRO_HO__IdLug__3A81B327" Association="Self.FK__CENTRO_HO__IdLug__3A81B327">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="CENTRO_HOSPITALARIO" EntitySet="CENTRO_HOSPITALARIO" />
+          </AssociationSet>
+          <EntitySet Name="MEDIDAS_PAIS" EntityType="CoTECModel.MEDIDAS_PAIS" />
+          <EntitySet Name="REPORTES_ESTADOS" EntityType="CoTECModel.REPORTES_ESTADOS" />
+          <AssociationSet Name="FK__MEDIDAS_P__IdLug__5AEE82B9" Association="CoTECModel.FK__MEDIDAS_P__IdLug__5AEE82B9">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="MEDIDAS_PAIS" EntitySet="MEDIDAS_PAIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPORTES___IdLug__5629CD9C" Association="CoTECModel.FK__REPORTES___IdLug__5629CD9C">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="REPORTES_ESTADOS" EntitySet="REPORTES_ESTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MEDIDAS_P__IdMed__5BE2A6F2" Association="CoTECModel.FK__MEDIDAS_P__IdMed__5BE2A6F2">
+            <End Role="MEDIDA_SANITARIA" EntitySet="MEDIDA_SANITARIA" />
+            <End Role="MEDIDAS_PAIS" EntitySet="MEDIDAS_PAIS" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="CoTECModel.sysdiagrams" />
+          <EntitySet Name="REPORTES_CASOS" EntityType="CoTECModel.REPORTES_CASOS" />
+          <AssociationSet Name="FK__REPORTES___IdLug__5441852A" Association="CoTECModel.FK__REPORTES___IdLug__5441852A">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="REPORTES_CASOS" EntitySet="REPORTES_CASOS" />
+          </AssociationSet>
+          <EntitySet Name="CONTACTO" EntityType="CoTECModel.CONTACTO" />
+          <EntitySet Name="ESTADO_PACIENTE" EntityType="CoTECModel.ESTADO_PACIENTE" />
+          <EntitySet Name="PACIENTE" EntityType="CoTECModel.PACIENTE" />
+          <AssociationSet Name="FK__CONTACTO__IdLuga__4E88ABD4" Association="CoTECModel.FK__CONTACTO__IdLuga__4E88ABD4">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTO__IdPaci__4D94879B" Association="CoTECModel.FK__CONTACTO__IdPaci__4D94879B">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTO__IdPato__4F7CD00D" Association="CoTECModel.FK__CONTACTO__IdPato__4F7CD00D">
+            <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+            <End Role="CONTACTO" EntitySet="CONTACTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ESTADO_PA__IdEst__52593CB8" Association="CoTECModel.FK__ESTADO_PA__IdEst__52593CB8">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="ESTADO_PACIENTE" EntitySet="ESTADO_PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdEsta__47DBAE45" Association="CoTECModel.FK__PACIENTE__IdEsta__47DBAE45">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ESTADO_PA__IdPac__5165187F" Association="CoTECModel.FK__ESTADO_PA__IdPac__5165187F">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="ESTADO_PACIENTE" EntitySet="ESTADO_PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdLuga__46E78A0C" Association="CoTECModel.FK__PACIENTE__IdLuga__46E78A0C">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdMedi__48CFD27E" Association="CoTECModel.FK__PACIENTE__IdMedi__48CFD27E">
+            <End Role="MEDICAMENTO" EntitySet="MEDICAMENTO" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PACIENTE__IdPato__49C3F6B7" Association="CoTECModel.FK__PACIENTE__IdPato__49C3F6B7">
+            <End Role="PATOLOGIA" EntitySet="PATOLOGIA" />
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="MEDIDAS_PAIS">
+          <Key>
+            <PropertyRef Name="IdMedidasPais" />
+          </Key>
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="IdMedidaSanitaria" Type="Int32" />
+          <Property Name="IdMedidasPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="LUGAR" Relationship="CoTECModel.FK__MEDIDAS_P__IdLug__5AEE82B9" FromRole="MEDIDAS_PAIS" ToRole="LUGAR" />
+          <NavigationProperty Name="MEDIDA_SANITARIA" Relationship="CoTECModel.FK__MEDIDAS_P__IdMed__5BE2A6F2" FromRole="MEDIDAS_PAIS" ToRole="MEDIDA_SANITARIA" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="REPORTES_ESTADOS">
+          <Key>
+            <PropertyRef Name="IdReportesEstados" />
+          </Key>
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="Contagiados" Type="Int32" />
+          <Property Name="Recuperados" Type="Int32" />
+          <Property Name="Muertos" Type="Int32" />
+          <Property Name="Activos" Type="Int32" />
+          <Property Name="IdReportesEstados" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="LUGAR" Relationship="CoTECModel.FK__REPORTES___IdLug__5629CD9C" FromRole="REPORTES_ESTADOS" ToRole="LUGAR" />
+        </EntityType>
+        <Association Name="FK__MEDIDAS_P__IdLug__5AEE82B9">
+          <End Type="CoTECModel.LUGAR" Role="LUGAR" Multiplicity="0..1" />
+          <End Type="CoTECModel.MEDIDAS_PAIS" Role="MEDIDAS_PAIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="MEDIDAS_PAIS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPORTES___IdLug__5629CD9C">
+          <End Type="CoTECModel.LUGAR" Role="LUGAR" Multiplicity="0..1" />
+          <End Type="CoTECModel.REPORTES_ESTADOS" Role="REPORTES_ESTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="REPORTES_ESTADOS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MEDIDAS_P__IdMed__5BE2A6F2">
+          <End Type="CoTECModel.MEDIDA_SANITARIA" Role="MEDIDA_SANITARIA" Multiplicity="0..1" />
+          <End Type="CoTECModel.MEDIDAS_PAIS" Role="MEDIDAS_PAIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIDA_SANITARIA">
+              <PropertyRef Name="IdMedidaSanitaria" />
+            </Principal>
+            <Dependent Role="MEDIDAS_PAIS">
+              <PropertyRef Name="IdMedidaSanitaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="REPORTES_CASOS">
+          <Key>
+            <PropertyRef Name="IdReportesCasos" />
+          </Key>
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="CasosNuevos" Type="Int32" />
+          <Property Name="Muertes" Type="Int32" />
+          <Property Name="IdReportesCasos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="LUGAR" Relationship="CoTECModel.FK__REPORTES___IdLug__5441852A" FromRole="REPORTES_CASOS" ToRole="LUGAR" />
+        </EntityType>
+        <Association Name="FK__REPORTES___IdLug__5441852A">
+          <End Type="CoTECModel.LUGAR" Role="LUGAR" Multiplicity="0..1" />
+          <End Type="CoTECModel.REPORTES_CASOS" Role="REPORTES_CASOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="REPORTES_CASOS">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CONTACTO">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreContacto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdPaciente" Type="Int32" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumIdentificacionContacto" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdPatologia" Type="Int32" />
+          <NavigationProperty Name="LUGAR" Relationship="CoTECModel.FK__CONTACTO__IdLuga__4E88ABD4" FromRole="CONTACTO" ToRole="LUGAR" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__CONTACTO__IdPaci__4D94879B" FromRole="CONTACTO" ToRole="PACIENTE" />
+          <NavigationProperty Name="PATOLOGIA" Relationship="CoTECModel.FK__CONTACTO__IdPato__4F7CD00D" FromRole="CONTACTO" ToRole="PATOLOGIA" />
+        </EntityType>
+        <EntityType Name="ESTADO_PACIENTE">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" />
+          <NavigationProperty Name="ESTADO" Relationship="CoTECModel.FK__ESTADO_PA__IdEst__52593CB8" FromRole="ESTADO_PACIENTE" ToRole="ESTADO" />
+          <NavigationProperty Name="PACIENTE" Relationship="CoTECModel.FK__ESTADO_PA__IdPac__5165187F" FromRole="ESTADO_PACIENTE" ToRole="PACIENTE" />
+        </EntityType>
+        <EntityType Name="PACIENTE">
+          <Key>
+            <PropertyRef Name="IdPaciente" />
+          </Key>
+          <Property Name="NombrePaciente" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="IdLugar" Type="Int32" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdContactos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Internado" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="IdPatologia" Type="Int32" />
+          <Property Name="IdMedicamento" Type="Int32" />
+          <Property Name="NumIdentificacion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CONTACTO" Relationship="CoTECModel.FK__CONTACTO__IdPaci__4D94879B" FromRole="PACIENTE" ToRole="CONTACTO" />
+          <NavigationProperty Name="ESTADO" Relationship="CoTECModel.FK__PACIENTE__IdEsta__47DBAE45" FromRole="PACIENTE" ToRole="ESTADO" />
+          <NavigationProperty Name="ESTADO_PACIENTE" Relationship="CoTECModel.FK__ESTADO_PA__IdPac__5165187F" FromRole="PACIENTE" ToRole="ESTADO_PACIENTE" />
+          <NavigationProperty Name="LUGAR" Relationship="CoTECModel.FK__PACIENTE__IdLuga__46E78A0C" FromRole="PACIENTE" ToRole="LUGAR" />
+          <NavigationProperty Name="MEDICAMENTO" Relationship="CoTECModel.FK__PACIENTE__IdMedi__48CFD27E" FromRole="PACIENTE" ToRole="MEDICAMENTO" />
+          <NavigationProperty Name="PATOLOGIA" Relationship="CoTECModel.FK__PACIENTE__IdPato__49C3F6B7" FromRole="PACIENTE" ToRole="PATOLOGIA" />
+        </EntityType>
+        <Association Name="FK__CONTACTO__IdLuga__4E88ABD4">
+          <End Type="CoTECModel.LUGAR" Role="LUGAR" Multiplicity="0..1" />
+          <End Type="CoTECModel.CONTACTO" Role="CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTO__IdPaci__4D94879B">
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="0..1" />
+          <End Type="CoTECModel.CONTACTO" Role="CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTO__IdPato__4F7CD00D">
+          <End Type="CoTECModel.PATOLOGIA" Role="PATOLOGIA" Multiplicity="0..1" />
+          <End Type="CoTECModel.CONTACTO" Role="CONTACTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PATOLOGIA">
+              <PropertyRef Name="IdPatologia" />
+            </Principal>
+            <Dependent Role="CONTACTO">
+              <PropertyRef Name="IdPatologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ESTADO_PA__IdEst__52593CB8">
+          <End Type="CoTECModel.ESTADO" Role="ESTADO" Multiplicity="0..1" />
+          <End Type="CoTECModel.ESTADO_PACIENTE" Role="ESTADO_PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="ESTADO_PACIENTE">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdEsta__47DBAE45">
+          <End Type="CoTECModel.ESTADO" Role="ESTADO" Multiplicity="0..1" />
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ESTADO_PA__IdPac__5165187F">
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="1" />
+          <End Type="CoTECModel.ESTADO_PACIENTE" Role="ESTADO_PACIENTE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Principal>
+            <Dependent Role="ESTADO_PACIENTE">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdLuga__46E78A0C">
+          <End Type="CoTECModel.LUGAR" Role="LUGAR" Multiplicity="0..1" />
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LUGAR">
+              <PropertyRef Name="IdLugar" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdMedi__48CFD27E">
+          <End Type="CoTECModel.MEDICAMENTO" Role="MEDICAMENTO" Multiplicity="0..1" />
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENTO">
+              <PropertyRef Name="IdMedicamento" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PACIENTE__IdPato__49C3F6B7">
+          <End Type="CoTECModel.PATOLOGIA" Role="PATOLOGIA" Multiplicity="0..1" />
+          <End Type="CoTECModel.PACIENTE" Role="PACIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PATOLOGIA">
+              <PropertyRef Name="IdPatologia" />
+            </Principal>
+            <Dependent Role="PACIENTE">
+              <PropertyRef Name="IdPatologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoTECModelStoreContainer" CdmEntityContainer="CoTECEntities">
+          <EntitySetMapping Name="CENTRO_HOSPITALARIO">
+            <EntityTypeMapping TypeName="CoTECModel.CENTRO_HOSPITALARIO">
+              <MappingFragment StoreEntitySet="CENTRO_HOSPITALARIO">
+                <ScalarProperty Name="IdCentroHospitalario" ColumnName="IdCentroHospitalario" />
+                <ScalarProperty Name="NombreHospital" ColumnName="NombreHospital" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO">
+            <EntityTypeMapping TypeName="CoTECModel.ESTADO">
+              <MappingFragment StoreEntitySet="ESTADO">
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Estado1" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LUGAR">
+            <EntityTypeMapping TypeName="CoTECModel.LUGAR">
+              <MappingFragment StoreEntitySet="LUGAR">
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICAMENTO">
+            <EntityTypeMapping TypeName="CoTECModel.MEDICAMENTO">
+              <MappingFragment StoreEntitySet="MEDICAMENTO">
+                <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+                <ScalarProperty Name="Medicamento1" ColumnName="Medicamento" />
+                <ScalarProperty Name="CasaFarmaceutica" ColumnName="CasaFarmaceutica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIDA_SANITARIA">
+            <EntityTypeMapping TypeName="CoTECModel.MEDIDA_SANITARIA">
+              <MappingFragment StoreEntitySet="MEDIDA_SANITARIA">
+                <ScalarProperty Name="IdMedidaSanitaria" ColumnName="IdMedidaSanitaria" />
+                <ScalarProperty Name="NombreMedida" ColumnName="NombreMedida" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PATOLOGIA">
+            <EntityTypeMapping TypeName="CoTECModel.PATOLOGIA">
+              <MappingFragment StoreEntitySet="PATOLOGIA">
+                <ScalarProperty Name="IdPatologia" ColumnName="IdPatologia" />
+                <ScalarProperty Name="NombrePatologia" ColumnName="NombrePatologia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Sintomas" ColumnName="Sintomas" />
+                <ScalarProperty Name="Tratamiento" ColumnName="Tratamiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIDAS_PAIS">
+            <EntityTypeMapping TypeName="CoTECModel.MEDIDAS_PAIS">
+              <MappingFragment StoreEntitySet="MEDIDAS_PAIS">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdMedidasPais" ColumnName="IdMedidasPais" />
+                <ScalarProperty Name="IdMedidaSanitaria" ColumnName="IdMedidaSanitaria" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTES_ESTADOS">
+            <EntityTypeMapping TypeName="CoTECModel.REPORTES_ESTADOS">
+              <MappingFragment StoreEntitySet="REPORTES_ESTADOS">
+                <ScalarProperty Name="IdReportesEstados" ColumnName="IdReportesEstados" />
+                <ScalarProperty Name="Activos" ColumnName="Activos" />
+                <ScalarProperty Name="Muertos" ColumnName="Muertos" />
+                <ScalarProperty Name="Recuperados" ColumnName="Recuperados" />
+                <ScalarProperty Name="Contagiados" ColumnName="Contagiados" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CoTECModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTES_CASOS">
+            <EntityTypeMapping TypeName="CoTECModel.REPORTES_CASOS">
+              <MappingFragment StoreEntitySet="REPORTES_CASOS">
+                <ScalarProperty Name="IdReportesCasos" ColumnName="IdReportesCasos" />
+                <ScalarProperty Name="Muertes" ColumnName="Muertes" />
+                <ScalarProperty Name="CasosNuevos" ColumnName="CasosNuevos" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTO">
+            <EntityTypeMapping TypeName="CoTECModel.CONTACTO">
+              <MappingFragment StoreEntitySet="CONTACTO">
+                <ScalarProperty Name="IdPatologia" ColumnName="IdPatologia" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="NumIdentificacionContacto" ColumnName="NumIdentificacionContacto" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+                <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+                <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_PACIENTE">
+            <EntityTypeMapping TypeName="CoTECModel.ESTADO_PACIENTE">
+              <MappingFragment StoreEntitySet="ESTADO_PACIENTE">
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACIENTE">
+            <EntityTypeMapping TypeName="CoTECModel.PACIENTE">
+              <MappingFragment StoreEntitySet="PACIENTE">
+                <ScalarProperty Name="NumIdentificacion" ColumnName="NumIdentificacion" />
+                <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+                <ScalarProperty Name="IdPatologia" ColumnName="IdPatologia" />
+                <ScalarProperty Name="Internado" ColumnName="Internado" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdContactos" ColumnName="IdContactos" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="IdLugar" ColumnName="IdLugar" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
