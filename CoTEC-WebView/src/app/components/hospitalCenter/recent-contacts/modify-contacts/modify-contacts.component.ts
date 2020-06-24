@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PathologiesService} from 'src/app/services/administration/pathologies.service';
+import {Pathologies} from 'src/app/models/administration/pathologies';
 declare var $: any;
 
 @Component({
@@ -9,7 +11,7 @@ declare var $: any;
 export class ModifyContactsComponent implements OnInit {
   pathologiesList=[]
 
-  constructor() { }
+  constructor(private pathologiesService: PathologiesService) { }
 
   ngOnInit(): void {
     $("#modifyPatientPathologies").mousedown(function(e){
@@ -24,6 +26,13 @@ export class ModifyContactsComponent implements OnInit {
       
       $(select).focus();
   }).mousemove(function(e){e.preventDefault()});
+
+      /*   Obtener Informacion del Api 
+    this.pathologiesService.getPathologies().subscribe((pathologies) =>{
+      this.pathologiesList=pathologies;
+    }) */
+    this.pathologiesList=this.pathologiesService.getPathologies()
+
   }
 
 }

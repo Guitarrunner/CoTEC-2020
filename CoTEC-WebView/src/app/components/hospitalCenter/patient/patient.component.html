@@ -5,6 +5,7 @@
   <table class="table">
      <thead>
         <tr>
+          <th scope="col">N°</th>
            <th scope="col">Nombre</th>
            <th scope="col">Apellido</th>
            <th scope="col">Nº Identificación</th>
@@ -21,11 +22,15 @@
      </thead>
      <tbody>
 
-        <tr *ngFor="let item of patients">
-           <th scope="row">{{ item.name }}</th>
+        <tr *ngFor="let item of patientsList">
+           <th scope="row">{{ item.id }}</th>
+           <td>{{ item.name }}</td>
            <td>{{ item.lastName }}</td>
-           <td>{{ item.id }}</td>
+           <td>{{ item.patientId }}</td>
            <td>{{ item.age }}</td>
+           <td>{{ item.nationality }}</td>
+           <td>{{ item.region }}</td>
+           <td>{{ item.pathologies }}</td>
            <td>{{ item.state }}</td>
            <td>{{ item.medication }}</td>
            <td>{{ item.intern }}</td>

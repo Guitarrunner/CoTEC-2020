@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientsService} from 'src/app/services/hospitalCenter/patients.service';
+import { Patients} from 'src/app/models/hospitalCenter/patients';
+
+
 
 import { of } from 'rxjs';
 
@@ -9,8 +13,8 @@ declare var $: any;
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent implements OnInit {
-  patients:[]
-  constructor(){}
+  patientsList=[]
+  constructor(private patientsService: PatientsService){}
   
 
 
@@ -36,6 +40,13 @@ export class PatientComponent implements OnInit {
 
   });
   }); 
+
+  /*   Obtener Informacion del Api 
+    this.patientsService.getPatients().subscribe((patients) =>{
+      this.patientsList=patients;
+    }) */
+    this.patientsList=this.patientsService.getPatients()
+
 
 
   }

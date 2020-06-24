@@ -8,14 +8,16 @@
           <table class="table ">
              <thead>
                 <tr>
+                  <th scope="col">N°</th>
                    <th scope="col">Estado</th>
                    <th scope="col">Editar/Eliminar</th>
                 </tr>
              </thead>
              <tbody>
         
-                <tr *ngFor="let item of states">
-                   <th scope="row">{{ item.state }}</th>
+                <tr *ngFor="let item of statesList">
+                   <th scope="row">{{ item.id }}</th>
+                   <td>{{ item.state }}</td>
                    <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
                     <a  data-toggle="modal" href="#" data-target="#delete" >Eliminar</a>
                   </td>

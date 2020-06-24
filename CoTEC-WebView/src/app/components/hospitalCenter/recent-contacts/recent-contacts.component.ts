@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactsService} from 'src/app/services/hospitalCenter/contacts.service';
+import { Contacts} from 'src/app/models/hospitalCenter/contacts';
 declare var $: any;
 
 
@@ -8,8 +10,8 @@ declare var $: any;
   styleUrls: ['./recent-contacts.component.css']
 })
 export class RecentContactsComponent implements OnInit {
-  contacts=[]
-  constructor() { }
+  contactsList=[]
+  constructor(private contactsService: ContactsService) { }
 
   ngOnInit(): void {
     $( document ).ready(function() {
@@ -21,7 +23,7 @@ export class RecentContactsComponent implements OnInit {
       var col4=$row.find("td:eq(3)").text();
       var col5=$row.find("td:eq(4)").text();
       var col6=$row.find("td:eq(5)").text();
-      var col8=$row.find("td:eq(5)").text();
+      var col8=$row.find("td:eq(7)").text();
      
       
       $("#modifiedName").val(col1);
@@ -35,6 +37,11 @@ export class RecentContactsComponent implements OnInit {
 
   });
   }); 
+  /*   Obtener Informacion del Api 
+    this.contactsService.getContacts().subscribe((contacts) =>{
+      this.contactsList=contacts;
+    }) */
+    this.contactsList=this.contactsService.getContacts()
 
   }
 

@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {RegionsService} from 'src/app/services/administration/regions.service';
+import {Regions} from 'src/app/models/administration/regions';
+
 declare var $: any;
+
 @Component({
   selector: 'app-regions',
   templateUrl: './regions.component.html',
   styleUrls: ['./regions.component.css']
 })
 export class RegionsComponent implements OnInit {
-  regions=[]
-  constructor() { }
+  regionsList=[]
+  constructor(private regionsService: RegionsService) { }
 
   ngOnInit(): void {
     $( document ).ready(function() {
@@ -19,13 +23,19 @@ export class RegionsComponent implements OnInit {
       var col3=$row.find("td:eq(3)").text();
       var col4=$row.find("td:eq(4)").text();
       
-      $("#modifiedCountry").val(col1);
-      $("#modifiedState").val(col2);
-      $("#modifiedRegion").val(col3);
-      $("#modifiedProvince").val(col4);
+      $("#modifiedCountry").val(primaryKey);
+      $("#modifiedState").val(col1);
+      $("#modifiedRegion").val(col2);
+      $("#modifiedProvince").val(col3);
 
-  });
-  }); 
+    });
+    }); 
+
+    /*   Obtener Informacion del Api 
+    this.regionsService.getRegions().subscribe((regions) =>{
+      this.regionsList=regions;
+    }) */
+    this.regionsList=this.regionsService.getRegions()
 
     
    

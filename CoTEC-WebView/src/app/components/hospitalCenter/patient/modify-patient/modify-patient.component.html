@@ -32,7 +32,7 @@
               <label for="region">Región</label>
               <select  class="form-control" id="regions" >
                 <option *ngFor="let item of regionsList">
-                {{item}}
+                {{item.region}}
                 </option>
               </select>
             </div>
@@ -43,7 +43,7 @@
               <label for="pathology">Patologías</label>
               <select multiple class="form-control" id="modifyPatientPathologies" >
                 <option *ngFor="let item of pathologiesList">
-                {{item}}
+                {{item.name}}
                 </option>
               </select>
             </div>
@@ -53,7 +53,7 @@
               <label for="state">Estado</label>
               <select  class="form-control" id="states" >
                 <option *ngFor="let item of statesList">
-                {{item}}
+                {{item.state}}
                 </option>
               </select>
             </div>

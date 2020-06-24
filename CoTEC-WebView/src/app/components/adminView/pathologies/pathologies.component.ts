@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PathologiesService} from 'src/app/services/administration/pathologies.service';
+import {Pathologies} from 'src/app/models/administration/pathologies';
+
 
 declare var $: any;
 
@@ -11,8 +14,9 @@ declare var $: any;
 
 
 export class PathologiesComponent implements OnInit {
-  pathologies:[]
-  constructor(){}
+  pathologiesList=[]
+
+  constructor(private pathologiesService: PathologiesService){}
 
   ngOnInit(): void {
     $( document ).ready(function() {
@@ -30,6 +34,12 @@ export class PathologiesComponent implements OnInit {
 
   });
   }); 
+
+    /*   Obtener Informacion del Api 
+    this.pathologiesService.getPathologies().subscribe((pathologies) =>{
+      this.pathologiesList=pathologies;
+    }) */
+    this.pathologiesList=this.pathologiesService.getPathologies()
 
   }
 

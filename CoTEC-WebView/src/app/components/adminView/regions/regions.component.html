@@ -4,7 +4,7 @@
     <table class="table">
        <thead>
           <tr>
-             <th scope="col">Id</th>
+             <th scope="col">N°</th>
              <th scope="col">País</th>
              <th scope="col">Estado</th>
              <th scope="col">Región</th>
@@ -14,8 +14,9 @@
        </thead>
        <tbody>
   
-          <tr *ngFor="let item of regions">
-             <th scope="row">{{ item.country }}</th>
+          <tr *ngFor="let item of regionsList">
+             <th scope="row">{{ item.id }}</th>
+             <td>{{ item.country }}</td>
              <td>{{ item.state }}</td>
              <td>{{ item.region }}</td>
              <td>{{ item.province }}</td>

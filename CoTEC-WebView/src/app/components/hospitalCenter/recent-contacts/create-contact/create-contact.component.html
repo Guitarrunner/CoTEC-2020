@@ -40,7 +40,7 @@
               <label for="pathology">Patologías</label>
               <select multiple class="form-control" id="createPatientPathologies" >
                 <option *ngFor="let item of pathologiesList">
-                {{item}}
+                {{item.name}}
                 </option>
               </select>
             </div>
