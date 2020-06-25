@@ -1,12 +1,22 @@
 --Crear TABLA LUGAR
+CREATE TABLE CONTINENTE
+(	IdContinente INT IDENTITY(1,1) NOT NULL,
+    NombreContinente VARCHAR(30) NOT NULL,
+	PRIMARY KEY (IdContinente),
+	UNIQUE(IdContinente));
+
+
+--Crear TABLA LUGAR
 CREATE TABLE LUGAR
 (	IdLugar INT IDENTITY(1,1) NOT NULL,
+    IdContinente INT,
     Pais VARCHAR(30) NOT NULL,
 	Estado VARCHAR(30),
 	Region VARCHAR(30),
 	Provincia VARCHAR(30),
 	PRIMARY KEY (IdLugar),
-	UNIQUE(IdLugar));
+	UNIQUE(IdLugar),
+	FOREIGN KEY (IdContinente) REFERENCES CONTINENTE(IdContinente));
 
 --Crear TABLA CENTRO HOSPITALARIO
 CREATE TABLE CENTRO_HOSPITALARIO
@@ -15,7 +25,8 @@ CREATE TABLE CENTRO_HOSPITALARIO
 	Director VARCHAR(45),
 	Contacto VARCHAR(30),
 	IdLugar INT,
-	Capacidad INT,
+	Camas INT,
+	CamasUCI INT,
 	PRIMARY KEY (IdCentroHospitalario),
 	UNIQUE (IdCentroHospitalario),
 	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar));
@@ -69,8 +80,8 @@ CREATE TABLE PACIENTE
 --Crear TABLA CONTACTO
 CREATE TABLE CONTACTO
 (	IdContacto INT IDENTITY(1,1) NOT NULL,
-    	NombreContacto VARCHAR(30) NOT NULL,
-    	IdPaciente BIGINT,
+    NombreContacto VARCHAR(30) NOT NULL,
+    IdPaciente BIGINT,
 	Apellidos VARCHAR(50) NOT NULL,
 	NumIdentificacionContacto VARCHAR(20) NOT NULL,
 	Edad INT,
@@ -120,7 +131,8 @@ CREATE TABLE MEDIDA_SANITARIA
 CREATE TABLE MEDIDAS_PAIS
 (	IdLugar INT,
 	IdMedidaSanitaria INT,
-    	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
-    	FOREIGN KEY (IdMedidaSanitaria) REFERENCES MEDIDA_SANITARIA(IdMedidaSanitaria));
+	Fecha DATETIME,
+    FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
+    FOREIGN KEY (IdMedidaSanitaria) REFERENCES MEDIDA_SANITARIA(IdMedidaSanitaria));
 
 

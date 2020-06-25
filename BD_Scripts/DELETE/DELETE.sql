@@ -1,0 +1,3 @@
+DELETE
+FROM LUGAR
+WHERE IdLugar = 6;
