@@ -1,19 +1,17 @@
 --Crear TABLA LUGAR
 CREATE TABLE CONTINENTE
 (	IdContinente INT IDENTITY(1,1) NOT NULL,
-    NombreContinente VARCHAR(30) NOT NULL,
+    NombreContinente VARCHAR(15) NOT NULL,
 	PRIMARY KEY (IdContinente),
 	UNIQUE(IdContinente));
-
 
 --Crear TABLA LUGAR
 CREATE TABLE LUGAR
 (	IdLugar INT IDENTITY(1,1) NOT NULL,
     IdContinente INT,
-    Pais VARCHAR(30) NOT NULL,
-	Estado VARCHAR(30),
-	Region VARCHAR(30),
-	Provincia VARCHAR(30),
+    Pais VARCHAR(25) NOT NULL,
+	Region VARCHAR(25),
+	Provincia VARCHAR(25),
 	PRIMARY KEY (IdLugar),
 	UNIQUE(IdLugar),
 	FOREIGN KEY (IdContinente) REFERENCES CONTINENTE(IdContinente));
@@ -22,8 +20,8 @@ CREATE TABLE LUGAR
 CREATE TABLE CENTRO_HOSPITALARIO
 (	IdCentroHospitalario INT IDENTITY(1,1) NOT NULL,
     NombreHospital VARCHAR(30) NOT NULL,
-	Director VARCHAR(45),
-	Contacto VARCHAR(30),
+	Director VARCHAR(30),
+	Contacto VARCHAR(15),
 	IdLugar INT,
 	Camas INT,
 	CamasUCI INT,
@@ -35,78 +33,76 @@ CREATE TABLE CENTRO_HOSPITALARIO
 CREATE TABLE PATOLOGIA
 (	IdPatologia INT IDENTITY(1,1) NOT NULL,
     NombrePatologia VARCHAR(15) NOT NULL,
-	Descripcion VARCHAR(50) NOT NULL,
-	Sintomas VARCHAR(50) NOT NULL,
-	Tratamiento VARCHAR(50) NOT NULL,
+	Descripcion VARCHAR(40),
+	Sintomas VARCHAR(40),
+	Tratamiento VARCHAR(40),
 	PRIMARY KEY (IdPatologia),
 	UNIQUE (IdPatologia));
 
 --Crear TABLA ESTADO DEL PACIENTE
 CREATE TABLE ESTADO
 (	IdEstado INT IDENTITY(1,1) NOT NULL,
-	Estado VARCHAR(35) NOT NULL,
+	Estado VARCHAR(15) NOT NULL,
 	PRIMARY KEY (IdEstado),
 	UNIQUE (IdEstado));
 
 --Crear TABLA MEDICAMENTO
 CREATE TABLE MEDICAMENTO
 (	IdMedicamento INT IDENTITY(1,1) NOT NULL,
-    Medicamento VARCHAR(40) NOT NULL,
-	CasaFarmaceutica VARCHAR(40) NOT NULL,
+    Medicamento VARCHAR(25) NOT NULL,
+	CasaFarmaceutica VARCHAR(25) NOT NULL,
 	PRIMARY KEY (IdMedicamento),
 	UNIQUE (IdMedicamento));
 
 --Crear TABLA PACIENTE
 CREATE TABLE PACIENTE
 (	NombrePaciente VARCHAR(30) NOT NULL,
-	Apellidos VARCHAR(50) NOT NULL,
-	NumIdentificacion BIGINT NOT NULL, --PK
+	Apellidos VARCHAR(40) NOT NULL,
+	IdPaciente INT IDENTITY(1,1),
+	NumIdentificacion VARCHAR(15) NOT NULL, --PK
 	Edad INT,
 	IdLugar INT,
-	Nacionalidad VARCHAR(30),
+	Nacionalidad VARCHAR(20),
 	IdEstado INT,
-	IdContactos VARCHAR(50), '1 2 3 54' Lista de IdContacto
+	IdContactos VARCHAR(50),
 	Email VARCHAR(30),
-	Internado  CHAR(3), --SI - NO
-	IdPatologia INT,
-	IdMedicamento INT,
+	Internado  CHAR, --N: normal U: uci
+	IdPatologias VARCHAR(50),
+	IdMedicamentos VARCHAR(50),
 	PRIMARY KEY (NumIdentificacion),
 	UNIQUE (NumIdentificacion),
-    	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
-   	FOREIGN KEY (IdEstado) REFERENCES ESTADO(IdEstado),
-    	FOREIGN KEY (IdMedicamento) REFERENCES MEDICAMENTO(IdMedicamento),
-	FOREIGN KEY (IdPatologia) REFERENCES PATOLOGIA(IdPatologia));
+    FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
+   	FOREIGN KEY (IdEstado) REFERENCES ESTADO(IdEstado));
 
 --Crear TABLA CONTACTO
 CREATE TABLE CONTACTO
 (	IdContacto INT IDENTITY(1,1) NOT NULL,
-    NombreContacto VARCHAR(30) NOT NULL,
-    IdPaciente BIGINT,
-	Apellidos VARCHAR(50) NOT NULL,
+    IdPaciente INT,
+    NombreContacto VARCHAR(30),
+	Apellidos VARCHAR(30),
 	NumIdentificacionContacto VARCHAR(20) NOT NULL,
 	Edad INT,
 	IdLugar INT,
 	Nacionalidad VARCHAR(30),
 	Email VARCHAR(30),
-	IdPatologia INT,
+	IdPatologia VARCHAR (50),
 	PRIMARY KEY (IdContacto),
 	UNIQUE (IdContacto),
-	FOREIGN KEY (IdPaciente) REFERENCES PACIENTE(NumIdentificacion),
-	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
-	FOREIGN KEY (IdPatologia) REFERENCES PATOLOGIA(IdPatologia));
+	FOREIGN KEY (IdPaciente) REFERENCES PACIENTE(IdPaciente),
+	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar));
 
 --Crear TABLA ESTADO DEL PACIENTE
 CREATE TABLE ESTADO_PACIENTE
-(	IdEstadoPaciente INT,
-    IdPaciente BIGINT,
+(	IdEstadoPaciente INT IDENTITY (1,1),
+    IdPaciente INT,
 	IdEstado INT,
-	PRIMARY KEY(IdEstadoPaciente)
-	FOREIGN KEY (IdPaciente) REFERENCES PACIENTE(NumIdentificacion),
+	PRIMARY KEY(IdEstadoPaciente),
+	FOREIGN KEY (IdPaciente) REFERENCES PACIENTE(IdPaciente),
 	FOREIGN KEY (IdEstado) REFERENCES ESTADO(IdEstado));
 
 --Crear TABLA REPORTES DE CASOS
 CREATE TABLE REPORTES_CASOS
-(	IdReportesCasos INT,
+(	IdReportesCasos INT IDENTITY (1,1),
     IdLugar INT,
 	Fecha datetime NOT NULL,
 	CasosNuevos INT,
@@ -116,7 +112,7 @@ CREATE TABLE REPORTES_CASOS
 
 --Crear TABLA REPORTES DE CASOS
 CREATE TABLE REPORTES_ESTADOS
-(	IdReportesEstados INT,
+(	IdReportesEstados INT IDENTITY (1,1),
     IdLugar INT,
 	Contagiados INT,
 	Recuperados INT,
@@ -135,10 +131,11 @@ CREATE TABLE MEDIDA_SANITARIA
 
 --Crear TABLA MEDIDAS SANITARIAS POR PAIS
 CREATE TABLE MEDIDAS_PAIS
-(	Id
+(	IdMedidasPais INT IDENTITY (1,1),
     IdLugar INT,
 	IdMedidaSanitaria INT,
-	Fecha DATETIME,
+	Fecha DATE,
+	PRIMARY KEY (IdMedidasPais),
     FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
     FOREIGN KEY (IdMedidaSanitaria) REFERENCES MEDIDA_SANITARIA(IdMedidaSanitaria));
 
