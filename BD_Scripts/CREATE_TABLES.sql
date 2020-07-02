@@ -97,26 +97,32 @@ CREATE TABLE CONTACTO
 
 --Crear TABLA ESTADO DEL PACIENTE
 CREATE TABLE ESTADO_PACIENTE
-(	IdPaciente BIGINT,
+(	IdEstadoPaciente INT,
+    IdPaciente BIGINT,
 	IdEstado INT,
+	PRIMARY KEY(IdEstadoPaciente)
 	FOREIGN KEY (IdPaciente) REFERENCES PACIENTE(NumIdentificacion),
 	FOREIGN KEY (IdEstado) REFERENCES ESTADO(IdEstado));
 
 --Crear TABLA REPORTES DE CASOS
 CREATE TABLE REPORTES_CASOS
-(	IdLugar INT,
+(	IdReportesCasos INT,
+    IdLugar INT,
 	Fecha datetime NOT NULL,
 	CasosNuevos INT,
 	Muertes INT,
+	PRIMARY KEY (IdReportesCasos),
 	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar));
 
 --Crear TABLA REPORTES DE CASOS
 CREATE TABLE REPORTES_ESTADOS
-(	IdLugar INT,
+(	IdReportesEstados INT,
+    IdLugar INT,
 	Contagiados INT,
 	Recuperados INT,
 	Muertos INT,
 	Activos INT,
+	PRIMARY KEY (IdReportesEstados),
 	FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar));
 
 --Crear TABLA MEDIDA SANITARIA
@@ -129,7 +135,8 @@ CREATE TABLE MEDIDA_SANITARIA
 
 --Crear TABLA MEDIDAS SANITARIAS POR PAIS
 CREATE TABLE MEDIDAS_PAIS
-(	IdLugar INT,
+(	Id
+    IdLugar INT,
 	IdMedidaSanitaria INT,
 	Fecha DATETIME,
     FOREIGN KEY (IdLugar) REFERENCES LUGAR(IdLugar),
