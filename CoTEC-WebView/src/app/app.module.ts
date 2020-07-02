@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import {FooterComponent } from 'src/app/components/shared/footer/footer.component';
@@ -31,6 +32,7 @@ import { StatusComponent} from './components/map/status/status.component';
 import { MeasurementsComponent } from './components/map/measurements/measurements.component';
 
 import { AgmCoreModule} from '@agm/core';
+import { LoginComponent } from './components/shared/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,11 +59,14 @@ import { AgmCoreModule} from '@agm/core';
     MapViewComponent,
     StatusComponent,
     MeasurementsComponent,
+    LoginComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC9Rw5vYXeTztwI-jDY4DlvPZQGPmJm8J4'

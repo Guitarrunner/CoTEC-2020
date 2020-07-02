@@ -19,7 +19,7 @@ export class CreatePatientComponent implements OnInit {
   constructor(private statesService: StatesService,private pathologiesService: PathologiesService,private regionsService: RegionsService) { }
 
   ngOnInit(): void {
-    $("#createPatientPathologies").mousedown(function(e){
+    $("#pathologies").mousedown(function(e){
       e.preventDefault();
       
       var select = this;

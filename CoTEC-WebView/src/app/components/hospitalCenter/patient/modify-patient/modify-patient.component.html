@@ -30,7 +30,7 @@
 
             <div class="form-group">
               <label for="region">Región</label>
-              <select  class="form-control" id="regions" >
+              <select  class="form-control" id="modifiedRegions" >
                 <option *ngFor="let item of regionsList">
                 {{item.region}}
                 </option>
@@ -41,7 +41,7 @@
 
             <div class="form-group">
               <label for="pathology">Patologías</label>
-              <select multiple class="form-control" id="modifyPatientPathologies" >
+              <select multiple class="form-control" id="modifiedPathologies" >
                 <option *ngFor="let item of pathologiesList">
                 {{item.name}}
                 </option>
@@ -51,7 +51,7 @@
             
             <div class="form-group">
               <label for="state">Estado</label>
-              <select  class="form-control" id="states" >
+              <select  class="form-control" id="modifiedStates" >
                 <option *ngFor="let item of statesList">
                 {{item.state}}
                 </option>
@@ -64,32 +64,20 @@
             </div>
           
             
-            <label>Internado</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Sí
-                </label>
+            <div class="form-group">
+              <label for="state">Internado</label>
+              <select class="form-control" id="modifiedIntern" >
+                <option >Sí</option>
+                <option >No</option>
+              </select>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  No
-                </label>
-            </div>
-                
-            <label>UCI</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Sí
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  No
-                </label>
+
+            <div class="form-group">
+              <label for="state">UCI</label>
+              <select class="form-control" id="modifiedUci" >
+                <option >Sí</option>
+                <option >No</option>
+              </select>
             </div>
 
         </form>

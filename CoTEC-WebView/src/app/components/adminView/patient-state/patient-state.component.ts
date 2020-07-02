@@ -13,6 +13,8 @@ export class PatientStateComponent implements OnInit {
   constructor(private statesService: StatesService) { }
 
   ngOnInit(): void {
+    var primaryKeyToDelete;
+    var primaryKeyToChange;
     $( document ).ready(function() {
       $(".editTable").click(function() {
       var $row = $(this).closest("tr");    // Find the row
@@ -29,6 +31,51 @@ export class PatientStateComponent implements OnInit {
       this.statesList=states;
     }) */
     this.statesList=this.statesService.getStates()
+    
+    /* Get modified data */
+    
+    $(document).ready(function() {
+      $("#getModifyData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToChange = $row.find("td:eq(0)").text(); // Find the text
+
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#sendModifiedState").click(function() {
+        var newPrimaryKey=$("#modifiedState").val();
+        
+      });
+    })
+
+    /* Get created data */
+    $(document).ready(function() {
+      $("#sendCreatedState").click(function() {
+        var primaryKey=$("#modifiedState").val();
+        
+      });
+    })
+
+    /* Get deleted data */
+    $(document).ready(function() {
+      $("#getDeleteData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#deleteState").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKey = primaryKeyToDelete;
+
+      });
+    })
+
 
   }
 

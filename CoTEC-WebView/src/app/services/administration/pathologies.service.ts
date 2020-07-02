@@ -12,6 +12,7 @@ const apiUrl = 'http://localhost:3000/reportes_tracking'; */
 export class PathologiesService {
   pathologies: Pathologies[]=[
     new Pathologies(1,'Cancer', 'Malestar general','Fiebre','Quimioterapia'),
+    new Pathologies(1,'Hipertension', 'Malestar general','Mareos','pastillas'),
   ]
 
   constructor(/* private http: HttpClient */) { }

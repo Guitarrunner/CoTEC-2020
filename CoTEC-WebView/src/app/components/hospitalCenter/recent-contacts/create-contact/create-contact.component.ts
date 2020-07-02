@@ -13,7 +13,7 @@ export class CreateContactComponent implements OnInit {
   constructor(private pathologiesService: PathologiesService) { }
 
   ngOnInit(): void {
-    $("#createPatientPathologies").mousedown(function(e){
+    $("#pathologies").mousedown(function(e){
       e.preventDefault();
       
       var select = this;

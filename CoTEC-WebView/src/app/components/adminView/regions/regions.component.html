@@ -5,6 +5,7 @@
        <thead>
           <tr>
              <th scope="col">N°</th>
+             <th style="display:none;" scope="col">id</th>
              <th scope="col">País</th>
              <th scope="col">Estado</th>
              <th scope="col">Región</th>
@@ -16,12 +17,13 @@
   
           <tr *ngFor="let item of regionsList">
              <th scope="row">{{ item.id }}</th>
+             <td style="display:none;">{{item.id}}</td>
              <td>{{ item.country }}</td>
              <td>{{ item.state }}</td>
              <td>{{ item.region }}</td>
              <td>{{ item.province }}</td>
-             <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
-              <a  data-toggle="modal" href="#" data-target="#delete" >Eliminar</a>
+             <td><a  data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
+              <a  data-toggle="modal" id="getDeleteData" href="#" data-target="#delete" >Eliminar</a>
             </td>
           </tr>
        </tbody>
@@ -44,7 +46,7 @@
         </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-           <button type="submit" class="btn btn-primary"  >Agregar</button>
+           <button type="submit" class="btn btn-primary" id="sendCreatedRegion"  data-dismiss="modal">Agregar</button>
          </div>
        </div>
      </div>
@@ -66,7 +68,7 @@
         </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-           <button type="button" class="btn btn-primary"  >Guardar cambios</button>
+           <button type="button" class="btn btn-primary" id="sendModifiedRegion" data-dismiss="modal" >Guardar cambios</button>
         </div>
       </div>
     </div>
@@ -89,7 +91,7 @@
         </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-           <button type="button" class="btn btn-primary"  >Eliminar</button>
+           <button type="button" class="btn btn-primary" id="deleteRegion" data-dismiss="modal">Eliminar</button>
         </div>
       </div>
     </div>

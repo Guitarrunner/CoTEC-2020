@@ -19,6 +19,9 @@ export class PathologiesComponent implements OnInit {
   constructor(private pathologiesService: PathologiesService){}
 
   ngOnInit(): void {
+    var primaryKeyToDelete;
+    var primaryKeyToChage;
+
     $( document ).ready(function() {
       $(".editTable").click(function() {
       var $row = $(this).closest("tr");    // Find the row
@@ -41,21 +44,58 @@ export class PathologiesComponent implements OnInit {
     }) */
     this.pathologiesList=this.pathologiesService.getPathologies()
 
+      /* Get modified data */
+
+    $(document).ready(function() {
+      $("#getModifyData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToChage = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })  
+
+    $(document).ready(function() {
+      $("#sendModifiedPathology").click(function() {
+        var primaryKey=$("#modifiedName").val();
+        var description= $("#modifiedDescription").val();
+        var symptoms=$("#modifiedSymptoms").val();
+        var treatment=$("#modifiedTreatment").val();
+        
+      });
+    })
+
+    /* Get created data */
+    $(document).ready(function() {
+      $("#sendCreatedPathology").click(function() {
+        var primaryKey=$("#pathologyName").val();
+        var description= $("#description").val();
+        var symptoms=$("#symptoms").val();
+        var treatment=$("#treatment").val();
+
+      });
+    })
+
+    /* Get deleted data */
+    $(document).ready(function() {
+      $("#getDeleteData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#deleteHospital").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKey = primaryKeyToDelete;
+        
+      });
+    })
+
   }
 
 
-  bellaqueo(): void {
-   let name = document.getElementById("name");
-   let description = document.getElementById("description");
-   let symptoms = document.getElementById("symptoms");
-   let treatment = document.getElementById("treatment");
-   console.log(name.nodeValue);
-   this.getTextBoxVal(name);
-   
- }
- getTextBoxVal(modalName){
-  console.log(modalName.value  )
-}
+ 
 }
 
 
