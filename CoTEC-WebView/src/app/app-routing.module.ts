@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 /**AdminView */
 import {HospitalCenterComponent} from 'src/app/components/adminView/hospital-center/hospital-center.component';
 import {PatientStateComponent} from 'src/app/components/adminView/patient-state/patient-state.component';
@@ -14,6 +15,7 @@ import { CreatePatientComponent } from './components/hospitalCenter/patient/crea
 import { CreateContactComponent } from './components/hospitalCenter/recent-contacts/create-contact/create-contact.component';
 
 import { MapComponent} from './components/map/map.component'
+import { LoginComponent} from './components/shared/login/login.component';
 /*
 import {ReportsComponent} from 'src/app/components/hospitalView/reports/reports.component'; */
 
@@ -23,6 +25,7 @@ const routes: Routes = [
    */
   {path: 'general', component:MapComponent},
   {path: 'recentContacts', component:RecentContactsComponent},
+  {path: 'login', component:LoginComponent},
   {path: 'patient', component: PatientComponent},
   { path: 'hospitalCenter', component: HospitalCenterComponent},
   { path: 'patientState', component:PatientStateComponent},
