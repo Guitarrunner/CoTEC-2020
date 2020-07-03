@@ -26,13 +26,13 @@ const routes: Routes = [
    */
   {path: '', component:MapComponent},
   {path: 'general', component:MapComponent},
-  {path: 'recentContacts', component:RecentContactsComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
+  {path: 'recentContacts', component:RecentContactsComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
   {path: 'login', component:LoginComponent},
-  {path: 'patient', component: PatientComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
-  { path: 'hospitalCenter', component: HospitalCenterComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
-  { path: 'patientState', component:PatientStateComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
-  { path: 'regions', component:RegionsComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
-  { path: 'pathologies',component:PathologiesComponent, data: { requiresLogin: true }, canActivate: [AccessGuardService]},
+  {path: 'patient', component: PatientComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
+  { path: 'hospitalCenter', component: HospitalCenterComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
+  { path: 'patientState', component:PatientStateComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
+  { path: 'regions', component:RegionsComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
+  { path: 'pathologies',component:PathologiesComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},
 ];
 
 @NgModule({
