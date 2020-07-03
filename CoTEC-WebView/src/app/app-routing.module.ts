@@ -21,6 +21,7 @@ const routes: Routes = [
  /*
   {path: 'reports', component:ReportsComponent},
    */
+  {path: '', component:MapComponent},
   {path: 'general', component:MapComponent},
   {path: 'recentContacts', component:RecentContactsComponent},
   {path: 'patient', component: PatientComponent},
