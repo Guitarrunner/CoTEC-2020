@@ -26,8 +26,8 @@
         <td>{{ item.description }}</td>
         <td>{{ item.symptoms }}</td>
         <td>{{ item.treatment }}</td>
-        <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
-         <a  data-toggle="modal" href="#" data-target="#delete" >Eliminar</a>
+        <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+         <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
        </td>
      </tr>
      </tbody>
@@ -52,7 +52,7 @@
       </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-         <button type="button" class="btn btn-primary"  >Agregar</button>
+         <button type="button" class="btn btn-primary" data-dismiss="modal" id="sendCreatedPathology"  >Agregar</button>
        </div>
      </div>
    </div>
@@ -74,7 +74,7 @@
       </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-         <button type="button" class="btn btn-primary" >Guardar cambios</button>
+         <button type="button" class="btn btn-primary" data-dismiss="modal" id="sendModifiedPathology" >Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@
      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary"  >Eliminar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="deleteHospital" >Eliminar</button>
      </div>
    </div>
  </div>

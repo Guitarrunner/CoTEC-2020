@@ -35,8 +35,8 @@
            <td>{{ item.medication }}</td>
            <td>{{ item.intern }}</td>
            <td>{{ item.uci }}</td>
-           <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
-            <a  data-toggle="modal" href="#" data-target="#delete" >Eliminar</a>
+           <td><a  data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
+            <a  data-toggle="modal" id="getDeleteData" href="#" data-target="#delete" >Eliminar</a>
           </td>
 
         </tr>
@@ -60,7 +60,7 @@
       </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-         <button type="button" class="btn btn-primary"  >Agregar</button>
+         <button type="button" class="btn btn-primary" id="sendCreatedPatient" data-dismiss="modal">Agregar</button>
        </div>
      </div>
    </div>
@@ -82,7 +82,7 @@
       </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-         <button type="button" class="btn btn-primary"  >Guardar cambios</button>
+         <button type="button" class="btn btn-primary" id="sendModifiedPatient" data-dismiss="modal">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -105,7 +105,7 @@
      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary"  >Eliminar</button>
+        <button type="button" class="btn btn-primary" id="deletePatient" data-dismiss="modal">Eliminar</button>
      </div>
    </div>
  </div>

@@ -14,6 +14,8 @@ export class RecentContactsComponent implements OnInit {
   constructor(private contactsService: ContactsService) { }
 
   ngOnInit(): void {
+    var primaryKeyToDelete;
+    var primaryKeyToChange;
     $( document ).ready(function() {
       $(".editTable").click(function() {
       var $row = $(this).closest("tr");    // Find the row
@@ -42,6 +44,61 @@ export class RecentContactsComponent implements OnInit {
       this.contactsList=contacts;
     }) */
     this.contactsList=this.contactsService.getContacts()
+
+     /* Get modified data */
+     $(document).ready(function() {
+      $("#getModifyData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToChange = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })
+
+      $(document).ready(function() {
+      $("#sendModifiedContact").click(function() {
+        var name=$("#modifiedName").val();
+        var lastName= $("#modifiedLastName").val();
+        var id=$("#modifiedId").val();
+        var age=$("#modifiedAge").val();
+        var nationality=$("#modifiedNationality").val();
+        var address=$("#modifiedAddress").val();
+        var pathologies=$("#modifiedPathologies").val();
+        var email=$("#modifiedEmail").val();
+        
+      });
+    })
+
+    /* Get created data */
+    $(document).ready(function() {
+      $("#sendCreatedContact").click(function() {
+        var name=$("#name").val();
+        var lastName= $("#lastName").val();
+        var id=$("#id").val();
+        var age=$("#age").val();
+        var nationality=$("#nationality").val();
+        var address=$("#address").val();
+        var pathologies=$("#pathologies").val();
+        var email=$("#email").val();
+
+      });
+    })
+
+    /* Get deleted data */
+    $(document).ready(function() {
+      $("#getDeleteData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#deleteContact").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKey = primaryKeyToDelete;
+        
+      });
+    })
 
   }
 

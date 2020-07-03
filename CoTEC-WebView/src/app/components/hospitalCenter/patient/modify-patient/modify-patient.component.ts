@@ -17,9 +17,11 @@ export class ModifyPatientComponent implements OnInit {
   regionsList=[]
   pathologiesList=[]
   statesList=[]
+
   constructor(private statesService: StatesService,private pathologiesService: PathologiesService,private regionsService: RegionsService) { }
 
   ngOnInit(): void {
+
     $("#modifyPatientPathologies").mousedown(function(e){
       e.preventDefault();
       
@@ -49,6 +51,8 @@ export class ModifyPatientComponent implements OnInit {
       this.regionsList=regions;
     }) */
     this.regionsList=this.regionsService.getRegions()
+
+    
 
 
   }

@@ -19,6 +19,9 @@ export class PatientComponent implements OnInit {
 
 
   ngOnInit(): void {
+    var primaryKeyToChange;
+    var primaryKeyToDelete;
+    
     $( document ).ready(function() {
       $(".editTable").click(function() {
       var $row = $(this).closest("tr");    // Find the row
@@ -47,7 +50,66 @@ export class PatientComponent implements OnInit {
     }) */
     this.patientsList=this.patientsService.getPatients()
 
+    /* Get modified data */
+    $(document).ready(function() {
+      $("#getModifyData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToChange = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })
 
+      $(document).ready(function() {
+      $("#sendModifiedPatient").click(function() {
+        var name=$("#modifiedName").val();
+        var lastName= $("#modifiedLastName").val();
+        var id=$("#modifiedId").val();
+        var age=$("#modifiedAge").val();
+        var nationality=$("#modifiedNationality").val();
+        var regions=$("#modifiedRegions").val();
+        var pathologies=$("#modifiedPathologies").val();
+        var states=$("#modifiedStates").val();
+        var medication=$("#modifiedMedication").val();
+        var intern=$("#modifiedIntern").val();
+        var uci=$("#modifiedUci").val();
+        
+      });
+    })
+
+    /* Get created data */
+    $(document).ready(function() {
+      $("#sendCreatedPatient").click(function() {
+        var name=$("#name").val();
+        var lastName= $("#lastName").val();
+        var id=$("#id").val();
+        var age=$("#age").val();
+        var nationality=$("#nationality").val();
+        var regions=$("#regions").val();
+        var pathologies=$("#pathologies").val();
+        var states=$("#states").val();
+        var medication=$("#medication").val();
+        var intern=$("#intern").val();
+        var uci=$("#uci").val();
+
+      });
+    })
+
+    /* Get deleted data */
+    $(document).ready(function() {
+      $("#getDeleteData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#deletePatient").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKey = primaryKeyToDelete;
+        
+      });
+    })
 
   }
 

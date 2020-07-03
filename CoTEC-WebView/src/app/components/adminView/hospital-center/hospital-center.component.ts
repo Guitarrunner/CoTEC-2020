@@ -15,9 +15,13 @@ export class HospitalCenterComponent implements OnInit {
 
   constructor(private hospitalsService: HospitalsService) { }
   hospitalsList: Hospitals[]=[]
+
+ 
   
   ngOnInit(): void {
-    var index
+    var primaryKeyToDelete;
+    var primaryKeyToChage;
+
     $( document ).ready(function() {
       $(".editTable").click(function() {
       var $row = $(this).closest("tr");    // Find the row
@@ -44,6 +48,62 @@ export class HospitalCenterComponent implements OnInit {
       this.hospitalsList=hospitals;
     }) */
     this.hospitalsList=this.hospitalsService.getHospitals()
+
+
+    /* Get modified data */
+    $(document).ready(function() {
+      $("#getModifyData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToChage = $row.find("td:eq(0)").text(); // Find the text
+        
+      });
+    })  
+
+    $(document).ready(function() {
+      $("#sendModifiedHospital").click(function() {
+        var primaryKey=$("#modifiedName").val();
+        var location= $("#modifiedLocation").val();
+        var capacity=$("#modifiedCapacity").val();
+        var uci=$("#modifiedUci").val();
+        var director=$("#modifiedDirector").val();
+        var contact=$("#modifiedPhone").val();
+        
+      });
+    })
+
+    /* Get created data */
+    $(document).ready(function() {
+      $("#sendCreatedHospital").click(function() {
+        var primaryKey=$("#hospitalName").val();
+        var location= $("#location").val();
+        var capacity=$("#capacity").val();
+        var uci=$("#capacitydUCI").val();
+        var director=$("#director").val();
+        var contact=$("#phone").val();
+        
+      });
+    })
+
+    /* Get deleted data */
+    $(document).ready(function() {
+      $("#getDeleteData").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+
+        
+      });
+    })
+
+    $(document).ready(function() {
+      $("#deleteHospital").click(function() {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKey = primaryKeyToDelete;
+
+      });
+    })
+
+
+    
   }
 
 }
