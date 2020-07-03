@@ -1,0 +1,23 @@
+.status{
+  left: -150px;
+  margin: 10px;
+  width:  300px;
+  height: 300px;
+  color: white;
+  background-color: #3F5E5A;
+}
+
+.card-header{
+  text-align: center;
+  background-color: #38423B;
+  color: #20FC8F;
+}
+
+.h1{
+  text-align: center;
+  font-size: small;
+}
+
+.inputt{
+  background-color: #3F5E5A;;
+}

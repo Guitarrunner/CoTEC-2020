@@ -21,11 +21,12 @@ export class PorPaisComponent implements OnInit {
       $("#summit1").click(function() {
         var country=$("#d1").val();
         var date=$("#datepicker").val();
+        var end=$("#datepicker2").val();
         var rest = [];
             var m1=$("#d5").val();
             rest.push((m1));
 
-        console.log(country, date,rest);
+        console.log(country, date,end,rest);
       });
     });
 
