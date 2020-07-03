@@ -38,6 +38,7 @@ export class HospitalCenterComponent implements OnInit {
       $("#modifiedUci").val(col3);
       $("#modifiedDirector").val(col4);
       $("#modifiedPhone").val(col5);
+     
 
     });
     }); 
@@ -68,6 +69,7 @@ export class HospitalCenterComponent implements OnInit {
         var director=$("#modifiedDirector").val();
         var contact=$("#modifiedPhone").val();
         
+        /*this.hospitalsService.modificar(primaryKeyToChage, primaryKey, location, capacity, uci, director, contact);*/
       });
     })
 
@@ -80,6 +82,8 @@ export class HospitalCenterComponent implements OnInit {
         var uci=$("#capacitydUCI").val();
         var director=$("#director").val();
         var contact=$("#phone").val();
+
+        /*this.hospitalsService.sendData(primaryKey, location, capacity, uci, director, contact);*/
         
       });
     })
@@ -98,6 +102,8 @@ export class HospitalCenterComponent implements OnInit {
       $("#deleteHospital").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
+        
+        /*this.hospitalsService.delete(primaryKeyToDelete);*/
 
       });
     })

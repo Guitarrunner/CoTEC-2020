@@ -50,22 +50,23 @@ export class RegionsComponent implements OnInit {
      $(document).ready(function() {
       $("#sendModifiedRegion").click(function() {
         var country=$("#modifiedCountry").val();
-        var description= $("#modifiedState").val();
-        var symptoms=$("#modifiedRegion").val();
-        var treatment=$("#modifiedProvince").val();
+        var state= $("#modifiedState").val();
+        var region=$("#modifiedRegion").val();
+        var province=$("#modifiedProvince").val();
 
-        
+        /*this.RegionsService.modificar(primaryKeyToChange, country,state, region,province); */
       });
     })
 
     /* Get created data */
     $(document).ready(function() {
       $("#sendCreatedRegion").click(function() {
-        var primaryKey=$("#country").val();
-        var description= $("#state").val();
-        var symptoms=$("#region").val();
-        var treatment=$("#province").val();
+        var country=$("#country").val();
+        var state= $("#state").val();
+        var region=$("#region").val();
+        var province=$("#province").val();
 
+        /*this.RegionsService.sendData(country,state, region,province); */
       });
     })
 
@@ -82,7 +83,7 @@ export class RegionsComponent implements OnInit {
       $("#deleteRegion").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
-        
+        /*this.RegionsService.delete(primaryKeyToDelete); */
       });
     })
 

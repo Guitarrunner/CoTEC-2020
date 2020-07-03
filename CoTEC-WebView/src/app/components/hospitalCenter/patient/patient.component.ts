@@ -72,7 +72,7 @@ export class PatientComponent implements OnInit {
         var medication=$("#modifiedMedication").val();
         var intern=$("#modifiedIntern").val();
         var uci=$("#modifiedUci").val();
-        
+        /*this.PatientsService.modificar(primaryKeyToChange,name,lastName,id,age,nationality,region,pathologies,states,medication,intern,uci);*/
       });
     })
 
@@ -90,7 +90,7 @@ export class PatientComponent implements OnInit {
         var medication=$("#medication").val();
         var intern=$("#intern").val();
         var uci=$("#uci").val();
-
+        /*this.PatientsService.sendData(name,lastName,id,age,nationality,region,pathologies,states,medication,intern,uci);*/
       });
     })
 
@@ -107,7 +107,7 @@ export class PatientComponent implements OnInit {
       $("#deletePatient").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
-        
+        /*this.PatientsService.delete(primaryKeyToDelete);*/
       });
     })
 

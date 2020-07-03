@@ -61,6 +61,7 @@ export class PathologiesComponent implements OnInit {
         var symptoms=$("#modifiedSymptoms").val();
         var treatment=$("#modifiedTreatment").val();
         
+        /*this.PathologiesService.modificar(primaryKeyToChage, primaryKey, description,symptoms, treatment); */
       });
     })
 
@@ -72,6 +73,7 @@ export class PathologiesComponent implements OnInit {
         var symptoms=$("#symptoms").val();
         var treatment=$("#treatment").val();
 
+        /*this.PathologiesService.sendData( primaryKey, description,symptoms, treatment); */
       });
     })
 
@@ -88,7 +90,7 @@ export class PathologiesComponent implements OnInit {
       $("#deleteHospital").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
-        
+        /*this.PathologiesService.delete( primaryKeyToDelete); */
       });
     })
 

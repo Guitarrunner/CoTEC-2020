@@ -64,7 +64,7 @@ export class RecentContactsComponent implements OnInit {
         var address=$("#modifiedAddress").val();
         var pathologies=$("#modifiedPathologies").val();
         var email=$("#modifiedEmail").val();
-        
+        /*this.ContactsService.modificar(primaryKeyToChange, name,lasName,id,age,nationality,address,pathologies,email);*/
       });
     })
 
@@ -79,6 +79,7 @@ export class RecentContactsComponent implements OnInit {
         var address=$("#address").val();
         var pathologies=$("#pathologies").val();
         var email=$("#email").val();
+        /*this.ContactsService.sendData(name,lasName,id,age,nationality,address,pathologies,email);*/
 
       });
     })
@@ -96,7 +97,8 @@ export class RecentContactsComponent implements OnInit {
       $("#deleteContact").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
-        
+        /*this.ContactsService.delete(primaryKeyToDelete);*/
+
       });
     })
 

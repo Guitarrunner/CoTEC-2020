@@ -10,7 +10,7 @@ import {States} from 'src/app/models/administration/states';
 })
 export class PatientStateComponent implements OnInit {
   statesList=[]
-  constructor(private statesService: StatesService) { }
+  constructor(private StatesService: StatesService) { }
 
   ngOnInit(): void {
     var primaryKeyToDelete;
@@ -27,11 +27,11 @@ export class PatientStateComponent implements OnInit {
   });
   }); 
   /*   Obtener Informacion del Api 
-    this.statesService.getStates().subscribe((states) =>{
+    this.StatesService.getStates().subscribe((states) =>{
       this.statesList=states;
     }) */
-    this.statesList=this.statesService.getStates()
-    
+    this.statesList=this.StatesService.getStates()
+
     /* Get modified data */
     
     $(document).ready(function() {
@@ -45,16 +45,17 @@ export class PatientStateComponent implements OnInit {
 
     $(document).ready(function() {
       $("#sendModifiedState").click(function() {
-        var newPrimaryKey=$("#modifiedState").val();
-        
+        var state=$("#modifiedState").val();
+        /**this.StatesService.modificar(state,state) */
       });
     })
 
     /* Get created data */
     $(document).ready(function() {
       $("#sendCreatedState").click(function() {
-        var primaryKey=$("#modifiedState").val();
-        
+        var state=$("#modifiedState").val();
+
+        /**this.StatesService.sendData(state) */
       });
     })
 
@@ -72,7 +73,7 @@ export class PatientStateComponent implements OnInit {
       $("#deleteState").click(function() {
         var $row = $(this).closest("tr");    // Find the row
         var primaryKey = primaryKeyToDelete;
-
+        /**this.StatesService.delete(state) */
       });
     })
 

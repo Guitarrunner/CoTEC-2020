@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 import {FooterComponent } from 'src/app/components/shared/footer/footer.component';
 import { NavComponent} from 'src/app/components/shared/nav/nav.component';
 import { AppComponent } from './app.component';
@@ -25,6 +26,13 @@ import { ModifyContactsComponent } from './components/hospitalCenter/recent-cont
 import { ModifyStateComponent } from './components/adminView/patient-state/modify-state/modify-state.component';
 import { CreateRegionComponent } from './components/adminView/regions/create-region/create-region.component';
 import { ModifyRegionComponent } from './components/adminView/regions/modify-region/modify-region.component';
+import {HospitalsService} from './services/administration/hospitals.service';
+import {PathologiesService} from './services/administration/pathologies.service';
+import {RegionsService} from './services/administration/regions.service';
+import {StatesService} from './services/administration/states.service';
+import {PatientsService} from './services/hospitalCenter/patients.service';
+import {ContactsService} from './services/hospitalCenter/contacts.service';
+
 
 import {MapComponent} from './components/map/map.component';
 import {MapViewComponent} from './components/map/map-view/map-view.component';
@@ -72,7 +80,12 @@ import { LoginComponent } from './components/shared/login/login.component';
       apiKey: 'AIzaSyC9Rw5vYXeTztwI-jDY4DlvPZQGPmJm8J4'
     })
   ],
-  providers: [],
+  providers: [HospitalsService,
+              PathologiesService,
+              RegionsService,
+              StatesService,
+              ContactsService,
+              PatientsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
