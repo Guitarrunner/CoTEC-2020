@@ -1,0 +1,48 @@
+.status{
+  left: -150px;
+  margin: 10px;
+  width: 600px;
+  height: 500px;
+  color: white;
+  background-color: #3F5E5A;
+}
+
+.card-header{
+  text-align: center;
+  background-color: #38423B;
+  color: #20FC8F;
+}
+
+.h1{
+  text-align: center;
+  font-size: small;
+}
+
+.form-control{
+    margin-top: 20px;
+    border-radius: 0;
+    background-color:#38423B ;
+    border-color: #38423B;
+    color: white;
+}
+.column1{
+    top:100px;
+}
+
+.selected{
+    width: 200px;
+}
+
+.menus{
+    width: 170px;
+}
+
+.column2{
+    width: 600px;
+    top: -150px;
+    left: 250px;
+}
+
+.checkbox{
+    margin-bottom: 10px;
+}

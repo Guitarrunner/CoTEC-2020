@@ -41,6 +41,9 @@ import { MeasurementsComponent } from './components/map/measurements/measurement
 
 import { AgmCoreModule} from '@agm/core';
 import { LoginComponent } from './components/shared/login/login.component';
+import { MedidasComponent } from './components/adminView/medidas/medidas.component';
+import { PorPaisComponent } from './components/adminView/medidas/por-pais/por-pais.component';
+import { CreateComponent } from './components/adminView/medidas/create/create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +71,9 @@ import { LoginComponent } from './components/shared/login/login.component';
     StatusComponent,
     MeasurementsComponent,
     LoginComponent,
+    MedidasComponent,
+    PorPaisComponent,
+    CreateComponent,
 
   ],
   imports: [

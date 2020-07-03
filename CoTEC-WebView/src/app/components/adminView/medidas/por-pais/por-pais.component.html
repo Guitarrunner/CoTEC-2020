@@ -1,0 +1,42 @@
+div class="row">
+    <div class="card status">
+
+      <div class="card-header">
+        <strong>ASOCIAR MEDIDA A PAÍS</strong></div>
+
+      <div class="card-body">
+        <div class="column1">
+          <div class="form-group">
+            <select  class="form-control selected" id="d1">
+              <option *ngFor="let item of countries">
+              {{item}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Fecha </label>
+            <div>
+                <input id="datepicker" type="date" name="day">
+            </div>
+          </div>
+
+          <input id="summit1" type="submit" (click)="associateCountry()" value="Submit">
+        </div>
+
+
+
+        <div class="col column2">
+          <div class="form-group">
+            <select  class="form-control selected" id="d5" multiple>
+              <option *ngFor="let item of medidas">
+              {{item}}
+              </option>
+            </select>
+          </div>
+
+
+        </div>
+
+        <p>Por favor presione Ctrl para seleccionar múltiples medidas.</p>
+      </div>
