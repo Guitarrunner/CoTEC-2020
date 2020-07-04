@@ -1,7 +1,7 @@
 <div id="content" #content>
 
-    <h3>Regiones</h3>
-    <table class="table">
+    <h3 class="h3">REGIONES</h3>
+    <table class="table text">
        <thead>
           <tr>
              <th scope="col">N°</th>
@@ -14,7 +14,7 @@
           </tr>
        </thead>
        <tbody>
-  
+
           <tr *ngFor="let item of regionsList">
              <th scope="row">{{ item.id }}</th>
              <td style="display:none;">{{item.id}}</td>
@@ -30,18 +30,18 @@
     </table>
     <button class="btn btn-dark" data-toggle="modal" data-target="#create">Agregar región</button>
   </div>
-  
+
   <!--Modal para crear una nueva region-->
   <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Agregar Patología</h5>
+         <div class="modal-header header">
+           <h5 class="modal-title" id="exampleModalLabel">AGREGAR REGIÓN</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
          </div>
-         <div class="modal-body">
+         <div class="modal-body back">
            <app-create-region></app-create-region>
         </div>
          <div class="modal-footer">
@@ -51,19 +51,19 @@
        </div>
      </div>
    </div>
-  
-  
+
+
    <!--Modal para modificar una region-->
   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Editar Patología</h5>
+         <div class="modal-header header">
+           <h5 class="modal-title" id="exampleModalLabel">EDITAR REGIÓN</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
          </div>
-         <div class="modal-body">
+         <div class="modal-body back">
            <app-modify-region></app-modify-region>
         </div>
          <div class="modal-footer">
@@ -73,18 +73,18 @@
       </div>
     </div>
   </div>
-  
+
   <!--Modal para eliminar una region-->
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Eliminar patologia</h5>
+         <div class="modal-header header">
+           <h5 class="modal-title" id="exampleModalLabel">ELIMINAR REGIÓN</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
          </div>
-         <div class="modal-body">
+         <div class="modal-body back">
            <div class="alert alert-danger" role="alert">
              ¿Está seguro?
            </div>
@@ -95,8 +95,7 @@
         </div>
       </div>
     </div>
-   </div>   
-   
-  
-  
-  
+   </div>
+
+
+

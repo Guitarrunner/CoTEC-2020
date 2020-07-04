@@ -1,11 +1,11 @@
 
 <div class="container">
-    <div class="row">   
+    <div class="row">
       <div class="col-sm">
         <div id="content" #content>
 
-          <h3>Estados de pacientes</h3>
-          <table class="table ">
+          <h3 class="h3">Estados de pacientes</h3>
+          <table class="table text">
              <thead>
                 <tr>
                   <th scope="col">N°</th>
@@ -14,7 +14,7 @@
                 </tr>
              </thead>
              <tbody>
-        
+
                 <tr *ngFor="let item of statesList">
                    <th scope="row">{{ item.id }}</th>
                    <td>{{ item.state }}</td>
@@ -28,9 +28,9 @@
       </div>
       <div class="col-sm">
         <form>
-          <h3>Agregar Estado</h3>
+          <h3 class="h3">Agregar Estado</h3>
           <div class="form-group">
-            <label for="state">Nuevo estado</label>
+            <label class="text" for="state">Nuevo estado</label>
             <input class="form-control" id="state" >
           </div>
           <button class="btn btn-dark" id="sendCreatedState" >Agregar</button>
@@ -43,13 +43,13 @@
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Patología</h5>
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">EDITAR ESTADO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body back">
         <app-modify-state></app-modify-state>
      </div>
       <div class="modal-footer">
@@ -64,13 +64,13 @@
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar patologia</h5>
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR ESTADO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body back">
         <div class="alert alert-danger" role="alert">
           ¿Está seguro?
         </div>
@@ -81,4 +81,4 @@
      </div>
    </div>
  </div>
-</div>   
+</div>

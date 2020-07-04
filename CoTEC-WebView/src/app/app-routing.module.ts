@@ -18,6 +18,7 @@ import { CreateContactComponent } from './components/hospitalCenter/recent-conta
 import { MapComponent} from './components/map/map.component'
 import { LoginComponent} from './components/shared/login/login.component';
 import { MedidasComponent } from './components/adminView/medidas/medidas.component';
+import { MedicacionesComponent } from './components/adminView/medicaciones/medicaciones.component';
 /*
 import {ReportsComponent} from 'src/app/components/hospitalView/reports/reports.component'; */
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'reports', component:ReportsComponent},
    */
   {path: '', component:MapComponent},
+  {path: 'medicine', component: MedicacionesComponent},
   {path: 'measurements', component: MedidasComponent},
   {path: 'general', component:MapComponent},
   {path: 'recentContacts', component:RecentContactsComponent/* , data: { requiresLogin: true }, canActivate: [AccessGuardService] */},

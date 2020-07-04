@@ -44,6 +44,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { MedidasComponent } from './components/adminView/medidas/medidas.component';
 import { PorPaisComponent } from './components/adminView/medidas/por-pais/por-pais.component';
 import { CreateComponent } from './components/adminView/medidas/create/create.component';
+import { MedicacionesComponent } from './components/adminView/medicaciones/medicaciones.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { CreateComponent } from './components/adminView/medidas/create/create.co
     MedidasComponent,
     PorPaisComponent,
     CreateComponent,
+    MedicacionesComponent,
 
   ],
   imports: [

@@ -2,8 +2,13 @@
   <div class="card status">
 
     <div class="card-header">
-      <strong>AGREGAR</strong></div>
-
+      <div class="form-group">
+        <select  class="form-control selected" id="d5" multiple>
+          <option *ngFor="let item of accion">
+          {{item}}
+          </option>
+        </select>
+      </div>
     <div class="card-body">
 
 
