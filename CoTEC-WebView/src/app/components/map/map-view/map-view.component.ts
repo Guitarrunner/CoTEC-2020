@@ -43,7 +43,7 @@ export class MapViewComponent implements OnInit {
 
   APIdata(country){
 //metodo del api aca
-    this.status= new CountryReport(12,12,12,12,12,["1","2"]);
+    this.status= new CountryReport(12,12,12,12,12,["1","2"],country);
     this.msg.sendMsg(this.status);
   }
 

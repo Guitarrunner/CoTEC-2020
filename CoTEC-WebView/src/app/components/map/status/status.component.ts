@@ -9,7 +9,8 @@ import { CountryStatusService } from 'src/app/services/country-status.service';
 export class StatusComponent implements OnInit {
 
   // [CONT, RECUPERADOS, MUERTOS, ACTIVOS, INC. DIARIO]
-  status = [1242,323,122,797,30];
+  status = [1242,323,122,797,30,""];
+  country;
   constructor(private msg: CountryStatusService) { }
 
   ngOnInit(): void {
@@ -24,7 +25,8 @@ export class StatusComponent implements OnInit {
         newReport.recuperados,
         newReport.muertos,
         newReport.activos,
-        newReport.incDiario
+        newReport.incDiario,
+        newReport.country,
     ];
   }
 
